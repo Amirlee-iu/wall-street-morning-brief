@@ -1,7 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { briefing, earnings, events, internationalNews, markets, signals, sources, stockNews, watchlist, type EventWindow } from "./market-data";
+import * as currentIssueData from "./market-data";
+import type { EventWindow } from "./market-data";
+
+export type MarketIssueData = Pick<
+  typeof currentIssueData,
+  "briefing" | "earnings" | "events" | "internationalNews" | "markets" | "signals" | "sources" | "stockNews" | "watchlist"
+>;
 
 const windows: { id: "all" | EventWindow; label: string }[] = [
   { id: "all", label: "总览" },
@@ -16,7 +22,14 @@ const windowMeta: Record<EventWindow, { title: string; date: string }> = {
   future: { title: "未来 7 天", date: "07/25—07/31" },
 };
 
-export function MarketBriefing() {
+export function MarketBriefing({
+  data = currentIssueData,
+  issueLabel = "第 001 期",
+}: {
+  data?: MarketIssueData;
+  issueLabel?: string;
+}) {
+  const { briefing, earnings, events, internationalNews, markets, signals, sources, stockNews, watchlist } = data;
   const [activeWindow, setActiveWindow] = useState<"all" | EventWindow>("all");
   const [query, setQuery] = useState("");
 
@@ -24,7 +37,7 @@ export function MarketBriefing() {
     const normalized = query.trim().toUpperCase();
     if (!normalized) return stockNews;
     return stockNews.filter((item) => `${item.ticker} ${item.title} ${item.detail}`.toUpperCase().includes(normalized));
-  }, [query]);
+  }, [query, stockNews]);
 
   const activeWindows: EventWindow[] = activeWindow === "all" ? ["previous", "today", "future"] : [activeWindow];
 
@@ -34,7 +47,7 @@ export function MarketBriefing() {
         <div className="masthead-topline">
           <span>WALL STREET DAILY BRIEF</span>
           <span>北京时间 · {briefing.updatedAt}</span>
-          <span>第 001 期</span>
+          <span className="edition-links"><a href="/archive">往期归档</a><span>{issueLabel}</span></span>
         </div>
         <div className="masthead-grid">
           <div>
@@ -120,6 +133,9 @@ export function MarketBriefing() {
                     <span>{item.status}</span>
                     {"reportUrl" in item && item.reportUrl && (
                       <a href={item.reportUrl} target="_blank" rel="noreferrer">直达财报 ↗</a>
+                    )}
+                    {"analysisUrl" in item && item.analysisUrl && (
+                      <a className="analysis-link" href={item.analysisUrl}>财报分析 →</a>
                     )}
                   </div>
                 </div>
