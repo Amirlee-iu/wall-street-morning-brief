@@ -1,0 +1,170 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { briefing, earnings, events, markets, signals, sources, stockNews, watchlist, type EventWindow } from "./market-data";
+
+const windows: { id: "all" | EventWindow; label: string }[] = [
+  { id: "all", label: "总览" },
+  { id: "previous", label: "前一交易日" },
+  { id: "today", label: "今天" },
+  { id: "future", label: "未来 7 天" },
+];
+
+const windowMeta: Record<EventWindow, { title: string; date: string }> = {
+  previous: { title: "前一交易日", date: "周四 · 07/23" },
+  today: { title: "今天", date: "周五 · 07/24" },
+  future: { title: "未来 7 天", date: "07/25—07/31" },
+};
+
+export function MarketBriefing() {
+  const [activeWindow, setActiveWindow] = useState<"all" | EventWindow>("all");
+  const [query, setQuery] = useState("");
+
+  const visibleNews = useMemo(() => {
+    const normalized = query.trim().toUpperCase();
+    if (!normalized) return stockNews;
+    return stockNews.filter((item) => `${item.ticker} ${item.title} ${item.detail}`.toUpperCase().includes(normalized));
+  }, [query]);
+
+  const activeWindows: EventWindow[] = activeWindow === "all" ? ["previous", "today", "future"] : [activeWindow];
+
+  return (
+    <main className="newspaper-shell">
+      <header className="masthead">
+        <div className="masthead-topline">
+          <span>WALL STREET DAILY BRIEF</span>
+          <span>北京时间 · {briefing.updatedAt}</span>
+          <span>第 001 期</span>
+        </div>
+        <div className="masthead-grid">
+          <div>
+            <p className="eyebrow">{briefing.edition} · MARKET INTELLIGENCE</p>
+            <h1>华尔街晨报</h1>
+            <p className="deck">{briefing.headline}</p>
+            <p className="summary">{briefing.summary}</p>
+          </div>
+          <div className="stance-block">
+            <p>今日市场判断</p>
+            <strong>{briefing.stance}</strong>
+            <div className="score-row"><span>{briefing.score}</span><small>/ 100 · 风险偏好</small></div>
+            <div className="score-track" aria-label={`风险偏好 ${briefing.score} 分`}><i style={{ width: `${briefing.score}%` }} /></div>
+            <p className="fineprint">下次更新 {briefing.nextUpdate}</p>
+          </div>
+        </div>
+      </header>
+
+      <section className="market-board" aria-label="跨资产前一日收盘表现">
+        <header className="market-board-heading">
+          <div><h2>跨资产收盘</h2><p>前一交易日收盘价与区间表现</p></div>
+          <div><b>数据核对至 {markets[0].checkedAt}</b><span>涨跌均为收盘至收盘；10Y 美债按基点</span></div>
+        </header>
+        <div className="market-grid">
+        {markets.map((market) => (
+          <article className="market-card" key={market.name}>
+            <div className="market-title"><b>{market.name}</b><strong>{market.close}</strong></div>
+            <p className={`market-summary ${market.tone}`}>{market.summary}</p>
+            <dl className="return-row">
+              <div><dt>前一日</dt><dd className={market.day.startsWith("+") ? "positive" : market.day.startsWith("−") ? "negative" : ""}>{market.day}</dd></div>
+              <div><dt>过去一周</dt><dd className={market.week.startsWith("+") ? "positive" : market.week.startsWith("−") ? "negative" : ""}>{market.week}</dd></div>
+              <div><dt>过去一月</dt><dd className={market.month.startsWith("+") ? "positive" : market.month.startsWith("−") ? "negative" : ""}>{market.month}</dd></div>
+            </dl>
+            <div className="market-meta"><span>{market.session}</span><span>核对 {market.checkedAt}</span></div>
+            <div className="market-source">
+              <a href={market.source} target="_blank" rel="noreferrer">{market.sourceLabel} ↗</a>
+              {"contextSource" in market && market.contextSource && <a href={market.contextSource} target="_blank" rel="noreferrer">汇通财经解读 ↗</a>}
+            </div>
+          </article>
+        ))}
+        </div>
+      </section>
+
+      <nav className="section-tabs" aria-label="事件时间范围">
+        {windows.map((item) => (
+          <button key={item.id} className={activeWindow === item.id ? "active" : ""} onClick={() => setActiveWindow(item.id)}>
+            {item.label}
+          </button>
+        ))}
+        <span className="live-dot">已核对公开来源</span>
+      </nav>
+
+      <div className="main-grid">
+        <section className={`timeline-grid ${activeWindows.length === 1 ? "single" : ""}`} aria-label="重要事件时间轴">
+          {activeWindows.map((window) => (
+            <article className="timeline-column" key={window}>
+              <header><h2>{windowMeta[window].title}</h2><time>{windowMeta[window].date}</time></header>
+              {events.filter((event) => event.window === window).map((event) => (
+                <div className={`event ${event.impact === "高" ? "high" : ""}`} key={`${event.time}-${event.title}`}>
+                  <div className="event-time">{event.time}</div>
+                  <div>
+                    <p className="event-kicker"><span>{event.category}</span> · {event.impact}影响</p>
+                    <h3>{event.title}</h3>
+                    <p>{event.detail}</p>
+                    <a href={event.source} target="_blank" rel="noreferrer">{event.sourceLabel} ↗</a>
+                  </div>
+                </div>
+              ))}
+            </article>
+          ))}
+        </section>
+
+        <aside className="right-rail">
+          <section className="rail-section">
+            <div className="section-heading"><h2>财报时间线</h2><span>北京时间</span></div>
+            <div className="earnings-list">
+              {earnings.map((item) => (
+                <div className="earning" key={item.ticker}>
+                  <b>{item.ticker}</b>
+                  <div><strong>{item.company}</strong><p>{item.focus}</p></div>
+                  <div className="earning-meta"><time>{item.date}</time><span>{item.status}</span></div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="rail-section">
+            <div className="section-heading"><h2>自选股要闻</h2><span>{visibleNews.length} 条更新</span></div>
+            <label className="search-field">
+              <span className="sr-only">筛选自选股新闻</span>
+              <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="输入代码筛选，例如 MU" />
+            </label>
+            <div className="news-list">
+              {visibleNews.map((item) => (
+                <article key={`${item.ticker}-${item.title}`}>
+                  <span className="ticker-tag">{item.ticker}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                  <a href={item.source} target="_blank" rel="noreferrer">{item.label} · 英文原文 ↗</a>
+                </article>
+              ))}
+              {visibleNews.length === 0 && <p className="empty">本期没有匹配的高重要度更新。</p>}
+            </div>
+          </section>
+        </aside>
+      </div>
+
+      <section className="secondary-grid">
+        <article>
+          <div className="section-heading"><h2>关注清单</h2><span>{watchlist.length} 个标的</span></div>
+          <div className="watchlist">{watchlist.map((ticker) => <span key={ticker}>{ticker}</span>)}</div>
+          <p className="note">后续新增代码会自动进入新闻、财报、评级与期权监测范围。</p>
+        </article>
+        <article>
+          <div className="section-heading"><h2>期权异动</h2><span>谨慎解读</span></div>
+          {signals.options.map((item) => <p className="signal" key={item.ticker}><b>{item.ticker}</b>{item.text}</p>)}
+        </article>
+        <article>
+          <div className="section-heading"><h2>机构评级</h2><span>只收录可验证更新</span></div>
+          {signals.ratings.map((item) => <p className="signal" key={item.ticker}><b>{item.ticker}</b>{item.text}</p>)}
+        </article>
+      </section>
+
+      <footer>
+        <div>
+          <b>来源索引</b>
+          {sources.map(([label, url]) => <a href={url} target="_blank" rel="noreferrer" key={label}>{label}</a>)}
+        </div>
+        <p>{briefing.inference}</p>
+      </footer>
+    </main>
+  );
+}
