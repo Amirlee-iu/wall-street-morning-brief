@@ -172,14 +172,53 @@ export const events = [
 ] as const;
 
 export const earnings = [
-  { ticker: "TSLA", company: "特斯拉", date: "07/22 盘后", status: "已披露", focus: "收入 $28.24B；非 GAAP EPS $0.33；FCF −$1.09B" },
-  { ticker: "INTC", company: "英特尔", date: "07/23 盘后", status: "已披露", focus: "收入 $16.1B；非 GAAP EPS $0.42；Q3 指引上调" },
+  { ticker: "TSLA", company: "特斯拉", date: "07/22 盘后", status: "已披露", focus: "收入 $28.24B；非 GAAP EPS $0.33；FCF −$1.09B", reportUrl: "https://www.sec.gov/Archives/edgar/data/1318605/000162828026049213/exhibit991.htm" },
+  { ticker: "INTC", company: "英特尔", date: "07/23 盘后", status: "已披露", focus: "收入 $16.1B；非 GAAP EPS $0.42；Q3 指引上调", reportUrl: "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm" },
   { ticker: "MSFT", company: "微软", date: "07/29 盘后", status: "官方确认", focus: "北京时间 07/30 05:00；Azure、AI CapEx、利润率" },
   { ticker: "AAPL", company: "苹果", date: "待确认", status: "待 IR 确认", focus: "iPhone、服务、关税影响" },
   { ticker: "AMZN", company: "亚马逊", date: "待确认", status: "持续追踪", focus: "AWS、广告、零售利润率" },
 ] as const;
 
 export const watchlist = ["SNDK", "TSLA", "MSFT", "AAPL", "SKHY", "MU", "SPCX", "INTC", "PAAS", "AMZN", "QQQ", "SPY", "VOO", "GDX"];
+
+export const internationalNews = [
+  {
+    category: "中东 / 能源",
+    date: "07/23",
+    impact: "油价、通胀、美债、航空与消费",
+    title: "红海油轮遇袭，第二条能源运输要道风险升高",
+    detail: "胡塞武装称袭击两艘沙特油轮，红海航线风险与霍尔木兹海峡受阻同时发酵。布伦特原油结算价升至 $100.69，能源成本冲击直接推高全球通胀和利率风险。",
+    source: "https://apnews.com/article/stocks-markets-iran-trump-ai-inflation-45b9165d6c518f5bea668b6ba7a89838",
+    sourceLabel: "AP",
+  },
+  {
+    category: "贸易 / 关税",
+    date: "07/23",
+    impact: "跨国公司、零售、半导体供应链",
+    title: "美国对 60 个贸易伙伴启用新一轮关税",
+    detail: "美国宣布对覆盖其绝大部分进口来源的 60 个贸易伙伴征收 10%–12.5%关税，并于 7 月 24 日生效。企业成本、供应链调整和终端价格再次成为市场变量。",
+    source: "https://apnews.com/article/trump-tariffs-supreme-court-forced-labor-4ea091eeee3fa1bfbe55af3f482e6bc1",
+    sourceLabel: "AP",
+  },
+  {
+    category: "欧洲 / 央行",
+    date: "07/23",
+    impact: "欧债、欧元、全球利率敏感资产",
+    title: "欧洲央行维持利率不变，但继续警惕能源通胀",
+    detail: "ECB 将存款机制利率维持在 2.25%，同时强调能源冲击的完整通胀影响尚未显现。德国 10 年期国债收益率升破 3.2%，全球长久期资产继续承压。",
+    source: "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260723~29f24d99bc.en.html",
+    sourceLabel: "European Central Bank",
+  },
+  {
+    category: "日本 / 外汇",
+    date: "07/23",
+    impact: "美元、日股、套利交易与全球流动性",
+    title: "日元重返 40 年低位，日本短债收益率触及多年高点",
+    detail: "油价冲击与加息预期推动日本两年期国债收益率触及 31 年高位，日元仍处于约 40 年低位。若日本当局干预汇市，可能触发套息交易快速去杠杆。",
+    source: "https://www.channelnewsasia.com/business/stocks-sink-big-tech-cash-burn-oil-hits-100-first-time-may-6272331",
+    sourceLabel: "Reuters via CNA",
+  },
+] as const;
 
 export const stockNews = [
   { ticker: "TSLA", title: "财报后重挫，利润率与现金流成为焦点", detail: "Q2 收入同比增 26%，但营业利润率降至 1.4%、自由现金流转为 −$1.09B；股价在 7 月 23 日出现两位数跌幅。", source: "https://www.sec.gov/Archives/edgar/data/1318605/000162828026049213/exhibit991.htm", label: "SEC / Tesla shareholder deck" },

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { briefing, earnings, events, markets, signals, sources, stockNews, watchlist, type EventWindow } from "./market-data";
+import { briefing, earnings, events, internationalNews, markets, signals, sources, stockNews, watchlist, type EventWindow } from "./market-data";
 
 const windows: { id: "all" | EventWindow; label: string }[] = [
   { id: "all", label: "总览" },
@@ -115,7 +115,13 @@ export function MarketBriefing() {
                 <div className="earning" key={item.ticker}>
                   <b>{item.ticker}</b>
                   <div><strong>{item.company}</strong><p>{item.focus}</p></div>
-                  <div className="earning-meta"><time>{item.date}</time><span>{item.status}</span></div>
+                  <div className="earning-meta">
+                    <time>{item.date}</time>
+                    <span>{item.status}</span>
+                    {"reportUrl" in item && item.reportUrl && (
+                      <a href={item.reportUrl} target="_blank" rel="noreferrer">直达财报 ↗</a>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -141,6 +147,31 @@ export function MarketBriefing() {
           </section>
         </aside>
       </div>
+
+      <section className="international-section" aria-label="国际重磅新闻">
+        <div className="international-heading">
+          <div>
+            <p className="eyebrow">GLOBAL MARKET MOVERS</p>
+            <h2>国际重磅新闻</h2>
+          </div>
+          <p>前一日发生 · 只收录可能改变市场定价的重要事件</p>
+        </div>
+        <div className="international-grid">
+          {internationalNews.map((item, index) => (
+            <article key={`${item.category}-${item.title}`}>
+              <div className="international-index">{String(index + 1).padStart(2, "0")}</div>
+              <div className="international-meta">
+                <span>{item.category}</span>
+                <time>{item.date}</time>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <div className="international-impact"><b>影响路径</b>{item.impact}</div>
+              <a href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel} · 英文原文 ↗</a>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="secondary-grid">
         <article>
