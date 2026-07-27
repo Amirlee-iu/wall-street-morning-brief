@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-07-27-am",
+    issue: "第 002 期",
+    edition: "盘后总结",
+    publishedAt: "2026-07-27 08:30 CST",
+    title: "油价回落缓解通胀焦虑，但科技股尚未摆脱资本开支重估",
+    stance: "谨慎偏空",
+    summary: "SPY 微涨 0.10%、QQQ 跌 1.12%；美伊停火压低能源风险，但 FOMC、GDP/PCE 和大型科技财报仍构成集中风险。",
+    href: "/issues/2026-07-27-am",
+  },
+  {
     id: "2026-07-24-am",
     issue: "第 001 期",
     edition: "盘后总结",
