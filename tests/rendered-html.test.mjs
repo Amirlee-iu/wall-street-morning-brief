@@ -43,8 +43,8 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /往期归档/);
   assert.match(html, /exhibit991\.htm/);
   assert.match(html, /q226earningsrelease\.htm/);
-  assert.match(html, /U\.S\. Census \/ HUD/);
-  assert.match(html, /美伊连续第二日暂停攻击/);
+  assert.match(html, /The Conference Board/);
+  assert.match(html, /阿曼提出霍尔木兹联合管理/);
   assert.match(html, /影响路径/);
 });
 
@@ -64,19 +64,24 @@ test("renders detailed earnings analysis from official filings", async () => {
 
 test("renders the issue archive and immutable issue page", async () => {
   const archive = await render("/archive");
-  const [issue, latestIssue] = await Promise.all([
+  const [issue, secondIssue, latestIssue] = await Promise.all([
     render("/issues/2026-07-24-am"),
     render("/issues/2026-07-27-am"),
+    render("/issues/2026-07-29-am"),
   ]);
   const archiveHtml = await archive.text();
   const issueHtml = await issue.text();
+  const secondIssueHtml = await secondIssue.text();
   const latestIssueHtml = await latestIssue.text();
 
   assert.match(archiveHtml, /往期归档/);
   assert.match(archiveHtml, /2026-07-24-am/);
   assert.match(archiveHtml, /2026-07-27-am/);
+  assert.match(archiveHtml, /2026-07-29-am/);
   assert.match(issueHtml, /存档版 · 第 001 期/);
   assert.match(issueHtml, /国际重磅新闻/);
-  assert.match(latestIssueHtml, /存档版 · 第 002 期/);
-  assert.match(latestIssueHtml, /美国 6 月耐用品订单/);
+  assert.match(secondIssueHtml, /存档版 · 第 002 期/);
+  assert.match(secondIssueHtml, /美国 6 月耐用品订单/);
+  assert.match(latestIssueHtml, /存档版 · 第 003 期/);
+  assert.match(latestIssueHtml, /FOMC 第二日会议/);
 });

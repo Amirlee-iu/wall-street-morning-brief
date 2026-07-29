@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-07-29-am",
+    issue: "第 003 期",
+    edition: "盘后总结",
+    publishedAt: "2026-07-29 10:06 CST",
+    title: "油价与长债继续降温，但存储芯片抛售揭示科技内部裂缝",
+    stance: "中性偏谨慎",
+    summary: "SPY 涨 0.24%、QQQ 跌 0.97%；油价和长债收益率回落，但存储链抛售与 FOMC、MSFT 财报构成下一交易日核心风险。",
+    href: "/issues/2026-07-29-am",
+  },
+  {
     id: "2026-07-27-am",
     issue: "第 002 期",
     edition: "盘后总结",
