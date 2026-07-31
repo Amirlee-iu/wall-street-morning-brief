@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-07-31-pm",
+    issue: "第 005 期",
+    edition: "盘前展望",
+    publishedAt: "2026-07-31 20:36 CST",
+    title: "AMZN 与 AAPL 走出分化，今晚工资通胀决定科技反弹成色",
+    stance: "中性偏多 · 高波动",
+    summary: "AMZN 盘后涨逾 9%、AAPL 跌 2.3%；今晚依次观察 ECI、开盘、芝加哥 PMI 与密歇根消费者信心终值。",
+    href: "/issues/2026-07-31-pm",
+  },
+  {
     id: "2026-07-31-am",
     issue: "第 004 期",
     edition: "盘后总结",
