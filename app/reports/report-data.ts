@@ -189,3 +189,171 @@ export const intelReport: EarningsReport = {
   disclaimer:
     "本报告基于 Intel 官方财报和 SEC 文件，由模型进行结构化解读。评分与情景分析属于编辑性判断，不构成投资建议或目标价预测。",
 };
+
+export const microsoftReport: EarningsReport = {
+  ticker: "MSFT",
+  company: "微软",
+  quarter: "2026 财年第四季度",
+  publishedAt: "2026-07-29 美股盘后",
+  verdict: "云与订单双强，AI 投资开始兑现，但会计收益需剔除",
+  score: 84,
+  scoreLabel: "财报质量评分",
+  thesis:
+    "Azure 增长 43%、Microsoft Cloud 收入增长 27%，商业剩余履约义务达到 $678B，证明 AI 与云需求正在转化为收入和可见订单。GAAP EPS 同时受约 $3.2B Anthropic 投资收益影响，判断经营质量应优先看云收入、营业利润和订单，而不是只看 EPS。",
+  metrics: [
+    { label: "收入", value: "$90.0B", change: "同比 +18%", tone: "positive" },
+    { label: "营业利润", value: "$40.6B", change: "同比 +18%", tone: "positive" },
+    { label: "Azure", value: "+43%", change: "固定汇率 +42%", tone: "positive" },
+    { label: "Microsoft Cloud", value: "$59.3B", change: "同比 +27%", tone: "positive" },
+    { label: "商业 RPO", value: "$678B", change: "同比 +84%", tone: "positive" },
+    { label: "GAAP EPS", value: "$4.81", change: "同比 +32%；含投资收益", tone: "neutral" },
+  ],
+  sections: [
+    {
+      title: "一、增长质量",
+      lead: "云业务和订单同步增长，比单季 EPS 更能验证 AI 投入的商业回报。",
+      points: [
+        "Intelligent Cloud 收入 $39.3B、同比增长 32%；Azure 增长 43%，公司披露 Azure 年收入首次超过 $100B。",
+        "Microsoft Cloud 收入 $59.3B、同比增长 27%；商业 RPO $678B、同比增长 84%，提高了未来收入可见度。",
+        "Microsoft 365 Copilot 付费席位超过 3,000 万，AI 需求开始从算力消耗转向可观察的软件席位。",
+      ],
+    },
+    {
+      title: "二、利润需要怎样还原",
+      lead: "核心经营增长强，但 GAAP 净利润并非全部来自主营业务。",
+      points: [
+        "GAAP 营业利润 $40.6B，同比增长 18%；GAAP 净利润 $35.77B，同比增长 31%。",
+        "公司披露当季离散项目合计增加约 $0.27 每股收益，其中包括约 $3.2B Anthropic 投资收益。",
+        "剔除指定离散项目后的非 GAAP EPS 为 $4.74、同比增长 23%，核心盈利仍强，但低于 GAAP 增速。",
+      ],
+    },
+    {
+      title: "三、结构分化与风险",
+      lead: "AI 云业务掩盖了消费和游戏业务的疲弱。",
+      points: [
+        "Productivity and Business Processes 收入 $37.8B、增长 14%；More Personal Computing 收入 $12.9B、下降 4%。",
+        "Xbox 内容与服务收入下降 10%，说明消费端并未同步受益于云与 AI 强势。",
+        "未来估值取决于 Azure 增速、云利润率和资本开支折旧能否匹配，而不只是继续扩大投入。",
+      ],
+    },
+  ],
+  positives: ["Azure 与 Microsoft Cloud 同步加速。", "商业 RPO 增长 84%，订单可见度显著提高。", "Copilot 已形成可观察的付费席位规模。"],
+  risks: ["资本开支、折旧与能源成本可能压低云利润率。", "投资收益会造成 GAAP EPS 波动。", "消费 PC 与 Xbox 业务仍弱。"],
+  watchItems: ["Azure 增速能否维持 40%左右。", "云毛利率与资本开支/折旧节奏。", "RPO 转化为收入的速度。", "Copilot 付费席位与单位收入。"],
+  sources: [
+    { label: "SEC · Microsoft FY2026 Q4 earnings release", url: "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm" },
+  ],
+  disclaimer: "本报告仅依据 Microsoft 提交 SEC 的官方财报材料。评分与判断属于模型分析，不构成投资建议；未披露项目不作推测。",
+};
+
+export const appleReport: EarningsReport = {
+  ticker: "AAPL",
+  company: "苹果",
+  quarter: "2026 财年第三季度",
+  publishedAt: "2026-07-30 美股盘后",
+  verdict: "需求广泛回升，但利润率含一次性关税退款",
+  score: 78,
+  scoreLabel: "财报质量评分",
+  thesis:
+    "收入增长 16%，iPhone、Mac、服务和大中华区均有强劲表现，增长基础较广；但 50.1%的毛利率约受 2 个百分点关税退款支持，EPS 也获益 $0.11。下一季判断重点是剔除退款后的有机毛利率，以及内存和关税成本能否被产品组合与定价吸收。",
+  metrics: [
+    { label: "收入", value: "$109.42B", change: "同比 +16%", tone: "positive" },
+    { label: "稀释 EPS", value: "$2.02", change: "同比 +29%；含 $0.11 退款", tone: "neutral" },
+    { label: "iPhone", value: "$54.25B", change: "同比 +22%", tone: "positive" },
+    { label: "服务", value: "$30.74B", change: "同比 +12%", tone: "positive" },
+    { label: "大中华区", value: "$18.82B", change: "同比 +22%", tone: "positive" },
+    { label: "毛利率", value: "50.1%", change: "约 +2ppt 来自关税退款", tone: "neutral" },
+  ],
+  sections: [
+    {
+      title: "一、需求是否真实改善",
+      lead: "增长覆盖产品与地区，不是单一品类拉动。",
+      points: [
+        "iPhone 收入 $54.25B、同比增长约 22%；Mac 收入 $10.35B、增长约 29%。",
+        "服务收入 $30.74B、增长约 12%；安装设备基数再创新高，为经常性收入提供基础。",
+        "大中华区收入 $18.82B、同比增长约 22%，明显缓解此前最受关注的区域需求压力。",
+      ],
+    },
+    {
+      title: "二、利润率必须正常化观察",
+      lead: "本季利润强，但一次性退款不可外推。",
+      points: [
+        "净利润 $29.79B，高于上年同期 $23.43B；稀释 EPS $2.02，同比增长 29%。",
+        "公司明确披露关税退款为 EPS 增加 $0.11，并给毛利率带来约 2 个百分点有利影响。",
+        "因此下一季度需把产品组合、定价与成本改善同一次性退款分开，不应直接年化本季 50.1%毛利率。",
+      ],
+    },
+    {
+      title: "三、后续矛盾",
+      lead: "AI 产品执行与成本压力将接替本季退款成为定价主线。",
+      points: [
+        "iPad 收入 $6.19B、同比下降约 6%，是主要产品中唯一明显下滑项。",
+        "官方已推出升级版 Siri AI 功能，但财报未单独披露 AI 收入，不能臆测其变现规模。",
+        "内存成本、关税和新品定价将决定强劲收入能否继续转化为有机利润增长。",
+      ],
+    },
+  ],
+  positives: ["iPhone、Mac、服务与大中华区均实现双位数增长。", "安装设备基数创新高。", "资本开支远低于主要超大规模云厂商，现金流压力较小。"],
+  risks: ["关税退款不可持续。", "内存与其他组件成本可能侵蚀毛利率。", "AI 功能的用户采用与商业化尚未单独披露。", "iPad 收入下滑。"],
+  watchItems: ["剔除退款后的毛利率。", "服务收入增速与安装基数变现。", "大中华区和 iPhone 增速的延续性。", "Siri AI 功能的采用数据。"],
+  sources: [
+    { label: "SEC · Apple FY2026 Q3 earnings release", url: "https://www.sec.gov/Archives/edgar/data/320193/000032019326000018/a8-kex991q3202606272026.htm" },
+  ],
+  disclaimer: "本报告仅依据 Apple 提交 SEC 的官方财报材料。评分与判断属于模型分析，不构成投资建议；AI 收入等未披露数据不作推测。",
+};
+
+export const amazonReport: EarningsReport = {
+  ticker: "AMZN",
+  company: "亚马逊",
+  quarter: "2026 年第二季度",
+  publishedAt: "2026-07-30 美股盘后",
+  verdict: "AWS 与经营利润强劲，但现金流和会计收益敲响警钟",
+  score: 75,
+  scoreLabel: "财报质量评分",
+  thesis:
+    "AWS 增长 37%、为 18 个季度最快，集团营业利润增长 43%，说明 AI 与云需求正在兑现；但过去 12 个月自由现金流由正转负，GAAP 净利润又主要受 $53.4B Anthropic 相关非经营收益推动。经营改善是真实的，报表净利润却不能直接代表可分配现金。",
+  metrics: [
+    { label: "净销售额", value: "$200.6B", change: "同比 +20%", tone: "positive" },
+    { label: "营业利润", value: "$27.5B", change: "同比 +43%", tone: "positive" },
+    { label: "AWS 销售额", value: "$42.2B", change: "同比 +37%", tone: "positive" },
+    { label: "AWS 营业利润", value: "$16.6B", change: "上年 $10.2B", tone: "positive" },
+    { label: "GAAP 净利润", value: "$62.6B", change: "含 $53.4B 非经营收益", tone: "neutral" },
+    { label: "TTM 自由现金流", value: "−$7.6B", change: "上年 +$18.2B", tone: "negative" },
+  ],
+  sections: [
+    {
+      title: "一、经营增长来自哪里",
+      lead: "云业务重新加速，同时零售三大区域均贡献增长。",
+      points: [
+        "AWS 销售额 $42.2B、增长 37%，为 18 个季度最快，并达到约 $169B 年化收入规模。",
+        "北美销售额 $116.2B、增长 16%；国际销售额 $42.2B、增长 15%。",
+        "集团营业利润 $27.5B，高于上年 $19.2B；AWS 营业利润 $16.6B，是最主要利润来源。",
+      ],
+    },
+    {
+      title: "二、为什么净利润不能直接看",
+      lead: "GAAP EPS 的跃升主要不是主营经营利润形成。",
+      points: [
+        "GAAP 净利润 $62.6B、稀释 EPS $5.75，远高于上年 $18.2B和 $1.68。",
+        "公司披露其他收入中包含约 $53.4B 税前收益，主要来自 Anthropic 投资估值变动。",
+        "该收益可能随估值变化而反转；评价持续盈利能力应优先看营业利润和现金流。",
+      ],
+    },
+    {
+      title: "三、资本开支与现金流",
+      lead: "AI 需求强，但为此付出的现金成本也在快速上升。",
+      points: [
+        "过去 12 个月经营现金流增长 33%至 $161.4B，但设备与物业购买增加约 $66.1B，主要用于 AI。",
+        "TTM 自由现金流降至 −$7.6B，上年同期为 +$18.2B，资本开支已吞噬经营现金改善。",
+        "Q3 指引为销售额 $197B—$202B、营业利润 $22.5B—$26.5B；指引中值与现金流兑现需同步验证。",
+      ],
+    },
+  ],
+  positives: ["AWS 增长 37%，为 18 个季度最快。", "集团营业利润增长 43%。", "北美、国际和 AWS 三大分部销售均实现双位数增长。"],
+  risks: ["TTM 自由现金流转为负值。", "GAAP 净利润主要受 Anthropic 估值收益推动。", "AI、能源、内存与物流资本开支回报存在时滞。", "投资估值变动可能造成净利润高波动。"],
+  watchItems: ["AWS 增速能否保持 35%以上。", "资本开支和 TTM 自由现金流何时改善。", "AWS 营业利润率。", "Q3 指引中值与零售利润率。"],
+  sources: [
+    { label: "SEC · Amazon Q2 2026 earnings release", url: "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm" },
+  ],
+  disclaimer: "本报告仅依据 Amazon 提交 SEC 的官方财报材料。评分与判断属于模型分析，不构成投资建议；未披露项目不作推测。",
+};

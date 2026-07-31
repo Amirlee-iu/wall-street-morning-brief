@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-07-31-am",
+    issue: "第 004 期",
+    edition: "盘后总结",
+    publishedAt: "2026-07-31 09:38 CST",
+    title: "微软点燃 AI 反弹，但通胀与资本开支仍在给估值设上限",
+    stance: "中性偏多",
+    summary: "SPY 涨 1.68%、QQQ 涨 3.30%；微软验证 AI 收入，但 GDP/PCE、鹰派美联储与大厂资本开支仍约束估值。",
+    href: "/issues/2026-07-31-am",
+  },
+  {
     id: "2026-07-29-am",
     issue: "第 003 期",
     edition: "盘后总结",
