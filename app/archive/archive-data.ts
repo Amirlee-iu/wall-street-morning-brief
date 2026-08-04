@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-04-am",
+    issue: "第 006 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-04 11:03 CST",
+    title: "油价急跌释放估值压力，科技反弹迎来就业与 SpaceX 双重检验",
+    stance: "中性偏多 · 事件密集",
+    summary: "SPY 涨 1.42%、QQQ 涨 1.76%，WTI 跌 5.22%；今晚 JOLTS 与 SpaceX 首份上市后财报接力定价。",
+    href: "/issues/2026-08-04-am",
+  },
+  {
     id: "2026-07-31-pm",
     issue: "第 005 期",
     edition: "盘前展望",
