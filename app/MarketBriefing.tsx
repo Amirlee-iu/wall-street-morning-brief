@@ -17,14 +17,14 @@ const windows: { id: "all" | EventWindow; label: string }[] = [
 ];
 
 const windowMeta: Record<EventWindow, { title: string; date: string }> = {
-  previous: { title: "前一交易日", date: "周一 · 08/03" },
-  today: { title: "今天", date: "周二 · 08/04" },
-  future: { title: "未来 7 天", date: "08/05—08/11" },
+  previous: { title: "前一交易日", date: "周二 · 08/04" },
+  today: { title: "今天", date: "周三 · 08/05" },
+  future: { title: "未来 7 天", date: "08/06—08/12" },
 };
 
 export function MarketBriefing({
   data = currentIssueData,
-  issueLabel = "第 006 期",
+  issueLabel = "第 007 期",
 }: {
   data?: MarketIssueData;
   issueLabel?: string;

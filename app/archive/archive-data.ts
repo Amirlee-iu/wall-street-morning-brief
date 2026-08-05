@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-05-am",
+    issue: "第 007 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-05 09:35 CST",
+    title: "油价与长债同步回落，科技股创高后转向服务业与就业检验",
+    stance: "偏多 · 警惕事件反转",
+    summary: "SPY 涨 1.80%、QQQ 涨 3.40%，WTI 跌 5.69%；今晚 ISM 服务业与 SNDK 财报接力定价。",
+    href: "/issues/2026-08-05-am",
+  },
+  {
     id: "2026-08-04-am",
     issue: "第 006 期",
     edition: "盘后总结",

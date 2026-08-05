@@ -357,3 +357,86 @@ export const amazonReport: EarningsReport = {
   ],
   disclaimer: "本报告仅依据 Amazon 提交 SEC 的官方财报材料。评分与判断属于模型分析，不构成投资建议；未披露项目不作推测。",
 };
+
+export const spacexReport: EarningsReport = {
+  ticker: "SPCX",
+  company: "SpaceX",
+  quarter: "2026 年第二季度",
+  publishedAt: "2026-08-04 美股盘后",
+  verdict: "核心业务跨过盈利拐点，但 AI 投资强度与解禁供给抬高短线风险",
+  score: 66,
+  scoreLabel: "财报质量评分",
+  thesis:
+    "营收增长 92%、营业亏损显著收窄，Connectivity 与 AI 的调整后 EBITDA 合计达到 $3.743B，说明规模效应正在形成；但季度资本开支高达 $18.369B、超过当季营收 2.35 倍，其中 AI 占 $15.828B。公司拥有约 $100B 现金与有价证券，短期融资能力充足，但投资回报、GAAP 盈利与 8 月 6 日限售股解禁将决定估值能否消化。",
+  metrics: [
+    { label: "营收", value: "$7.814B", change: "同比 +92%", tone: "positive" },
+    { label: "营业亏损", value: "−$143M", change: "上年 −$970M", tone: "positive" },
+    { label: "净亏损", value: "−$541M", change: "上年 −$1.008B", tone: "positive" },
+    { label: "调整后 EBITDA", value: "$3.538B", change: "同比 +191%", tone: "positive" },
+    { label: "资本开支", value: "$18.369B", change: "上年 $2.825B", tone: "negative" },
+    { label: "现金与有价证券", value: "约 $100B", change: "含 IPO 募资", tone: "neutral" },
+  ],
+  sections: [
+    {
+      title: "一、增长由哪些业务驱动",
+      lead: "Connectivity 是现金利润核心，AI 成为最快扩张的新引擎。",
+      points: [
+        "Space、Connectivity、AI 分部收入分别为 $962M、$4.291B 和 $2.561B；Connectivity 占集团收入约 55%。",
+        "集团营收由上年同期 $4.071B 增至 $7.814B。公司披露在手订单 $47.5B，已签约云销售额 $14.1B，提高未来收入可见度。",
+        "增长并不均匀：传统 Space 分部规模相对较小，当前估值越来越依赖 Starlink 连接业务和 AI 基础设施的持续扩张。",
+      ],
+    },
+    {
+      title: "二、利润拐点是否真实",
+      lead: "经营改善是真实的，但 GAAP 与调整后口径仍需分开。",
+      points: [
+        "营业亏损从 $970M 收窄至 $143M，净亏损从 $1.008B 收窄至 $541M，说明核心经营杠杆显著改善。",
+        "调整后 EBITDA 为 $3.538B，其中 Connectivity 为 $2.597B、AI 为 $1.146B、Space 为 −$205M。AI 调整后 EBITDA 从上年 −$276M 转正。",
+        "集团仍未实现 GAAP 净利润，调整后 EBITDA 也不等同于自由现金流；判断盈利质量必须结合资本开支和后续折旧。",
+      ],
+    },
+    {
+      title: "三、资本开支是最大矛盾",
+      lead: "当季投资规模超过收入两倍，未来回报要求极高。",
+      points: [
+        "总资本开支 $18.369B，较上年同期 $2.825B 增加约 5.5 倍；AI 分部独占 $15.828B。",
+        "Space 与 Connectivity 资本开支分别为 $1.174B 和 $1.367B。AI 投资若不能快速形成高利用率云收入，折旧和现金消耗会压制后续盈利。",
+        "约 $100B 现金、现金等价物及有价证券提供了缓冲，但其中包含 IPO 净募资约 $85.7B；充足现金不能替代资本回报验证。",
+      ],
+    },
+    {
+      title: "四、市场如何定价",
+      lead: "业绩超出单纯收入增长叙事，但解禁与高投入让股价先交易供给和估值。",
+      points: [
+        "财报发布后股价盘后下跌约 7%，此前常规时段上涨约 9.4%；这是市场反应事实，不代表长期价值结论。",
+        "约 9.11 亿股预计于 8 月 6 日解除限售，潜在可售供给可能放大短期波动；实际出售规模无法事先确认。",
+        "下一阶段应把 Connectivity 利润率、AI 云合同转收入、资本开支和 GAAP 盈利放在同一张验证表中，而不是只看订单或调整后 EBITDA。",
+      ],
+    },
+  ],
+  positives: [
+    "营收同比增长 92%，Connectivity 与 AI 同时形成规模贡献。",
+    "调整后 EBITDA 增长 191%，AI 分部调整后 EBITDA 转正。",
+    "约 $100B 流动资产与 $47.5B 在手订单提供资金和收入可见度。",
+  ],
+  risks: [
+    "资本开支 $18.369B、超过当季营收 2.35 倍，自由现金流压力高。",
+    "集团仍录得 $541M GAAP 净亏损，调整后盈利不能替代会计利润。",
+    "8 月 6 日限售股解禁可能带来显著供给和波动。",
+    "AI 合同、利用率、折旧和投资回报的披露仍不足以形成长期确定性。",
+  ],
+  watchItems: [
+    "Connectivity 调整后 EBITDA 利润率能否稳定。",
+    "$14.1B 已签约云销售额的收入转化节奏。",
+    "AI 资本开支何时见顶，以及集团自由现金流何时转正。",
+    "GAAP 营业利润、折旧和股权激励的后续变化。",
+    "限售解禁后的实际内部人和早期投资者出售规模。",
+  ],
+  sources: [
+    { label: "SEC · SpaceX Q2 2026 earnings release", url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052515/earningsreleaseq22608042.htm" },
+    { label: "SEC · SpaceX Q2 2026 Form 10-Q", url: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052535/spcx-20260630.htm" },
+    { label: "Reuters · results and lockup reaction", url: "https://www.channelnewsasia.com/business/spacexs-first-quarterly-results-public-company-beat-expectations-ai-costs-hit-stock-6299041" },
+  ],
+  disclaimer:
+    "事实数据来自 SpaceX 提交 SEC 的财报和 10-Q；盘后反应与解禁信息由 Reuters 交叉核对。评分、判断与验证清单属于模型分析，不构成投资建议或目标价预测；未披露数据不作推测。",
+};
