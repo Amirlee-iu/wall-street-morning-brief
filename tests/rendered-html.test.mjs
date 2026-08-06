@@ -44,21 +44,22 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /6 月 JOLTS 职位空缺降至 735\.9 万/);
-  assert.match(html, /美伊谈判释放进展信号/);
+  assert.match(html, /ISM 服务业 PMI 54\.1/);
+  assert.match(html, /胡塞武装袭击沙特油轮/);
   assert.match(html, /影响路径/);
-  assert.match(html, /08\/06 04:00/);
-  assert.match(html, /油价与长债同步回落/);
+  assert.match(html, /08\/13 21:00/);
+  assert.match(html, /服务业价格升温/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
-  const [tesla, intel, microsoft, apple, amazon, spacex] = await Promise.all([
+  const [tesla, intel, microsoft, apple, amazon, spacex, sandisk] = await Promise.all([
     render("/reports/tsla-q2-2026"),
     render("/reports/intc-q2-2026"),
     render("/reports/msft-fy2026-q4"),
     render("/reports/aapl-fy2026-q3"),
     render("/reports/amzn-q2-2026"),
     render("/reports/spcx-q2-2026"),
+    render("/reports/sndk-fy2026-q4"),
   ]);
   const teslaHtml = await tesla.text();
   const intelHtml = await intel.text();
@@ -66,6 +67,7 @@ test("renders detailed earnings analysis from official filings", async () => {
   const appleHtml = await apple.text();
   const amazonHtml = await amazon.text();
   const spacexHtml = await spacex.text();
+  const sandiskHtml = await sandisk.text();
 
   assert.match(teslaHtml, /收入强，盈利质量弱/);
   assert.match(teslaHtml, /Tesla 2026 Q2 Form 10-Q/);
@@ -79,11 +81,13 @@ test("renders detailed earnings analysis from official filings", async () => {
   assert.match(amazonHtml, /Amazon Q2 2026 earnings release/);
   assert.match(spacexHtml, /核心业务跨过盈利拐点/);
   assert.match(spacexHtml, /SpaceX Q2 2026 Form 10-Q/);
+  assert.match(sandiskHtml, /价格与数据中心双轮驱动/);
+  assert.match(sandiskHtml, /SanDisk FY2026 Q4 Form 8-K/);
 });
 
 test("renders the issue archive and immutable issue page", async () => {
   const archive = await render("/archive");
-  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, latestIssue] = await Promise.all([
+  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, latestIssue] = await Promise.all([
     render("/issues/2026-07-24-am"),
     render("/issues/2026-07-27-am"),
     render("/issues/2026-07-29-am"),
@@ -91,6 +95,7 @@ test("renders the issue archive and immutable issue page", async () => {
     render("/issues/2026-07-31-pm"),
     render("/issues/2026-08-04-am"),
     render("/issues/2026-08-05-am"),
+    render("/issues/2026-08-06-am"),
   ]);
   const archiveHtml = await archive.text();
   const issueHtml = await issue.text();
@@ -100,6 +105,7 @@ test("renders the issue archive and immutable issue page", async () => {
   const fifthIssueHtml = await fifthIssue.text();
   const sixthIssueHtml = await sixthIssue.text();
   const latestIssueHtml = await latestIssue.text();
+  const seventhIssueHtml = await seventhIssue.text();
 
   assert.match(archiveHtml, /往期归档/);
   assert.match(archiveHtml, /2026-07-24-am/);
@@ -109,6 +115,7 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(archiveHtml, /2026-07-31-pm/);
   assert.match(archiveHtml, /2026-08-04-am/);
   assert.match(archiveHtml, /2026-08-05-am/);
+  assert.match(archiveHtml, /2026-08-06-am/);
   assert.match(issueHtml, /存档版 · 第 001 期/);
   assert.match(issueHtml, /国际重磅新闻/);
   assert.match(secondIssueHtml, /存档版 · 第 002 期/);
@@ -121,6 +128,8 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(fifthIssueHtml, /芝加哥商业景气指数/);
   assert.match(sixthIssueHtml, /存档版 · 第 006 期/);
   assert.match(sixthIssueHtml, /SpaceX 上市后首份财报电话会/);
-  assert.match(latestIssueHtml, /存档版 · 第 007 期/);
-  assert.match(latestIssueHtml, /SpaceX 营收近翻倍/);
+  assert.match(seventhIssueHtml, /存档版 · 第 007 期/);
+  assert.match(seventhIssueHtml, /SpaceX 营收近翻倍/);
+  assert.match(latestIssueHtml, /存档版 · 第 008 期/);
+  assert.match(latestIssueHtml, /SanDisk 盈利与回购强劲/);
 });

@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-06-am",
+    issue: "第 008 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-06 09:31 CST",
+    title: "指数高位整理，服务业价格升温与存储周期峰值风险同时浮现",
+    stance: "中性 · 防范滞胀重定价",
+    summary: "SPY 跌 0.20%、QQQ 跌 0.90%，黄金涨 4.92%；ISM 内部滞胀信号与 SNDK 涨价驱动同时进入验证期。",
+    href: "/issues/2026-08-06-am",
+  },
+  {
     id: "2026-08-05-am",
     issue: "第 007 期",
     edition: "盘后总结",
