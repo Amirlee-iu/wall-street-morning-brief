@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-07-am",
+    issue: "第 009 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-07 09:41 CST",
+    title: "油价与长债收益率反弹压制风险偏好，今晚非农决定下一方向",
+    stance: "中性偏谨慎 · 等待非农",
+    summary: "SPY 跌 0.16%、QQQ 跌 0.37%，10Y 升 6bp、WTI 涨 3.87%；今晚非农决定利率与科技股下一方向。",
+    href: "/issues/2026-08-07-am",
+  },
+  {
     id: "2026-08-06-am",
     issue: "第 008 期",
     edition: "盘后总结",
