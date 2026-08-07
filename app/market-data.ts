@@ -2,7 +2,7 @@ export type EventWindow = "previous" | "today" | "future";
 
 export const briefing = {
   edition: "盘后版",
-  updatedAt: "2026-08-07 09:41 CST",
+  updatedAt: "2026-08-07 11:14 CST",
   nextUpdate: "2026-08-07 20:30 CST",
   stance: "中性偏谨慎 · 等待非农",
   score: 48,
@@ -39,28 +39,56 @@ export const events = [
 ] as const;
 
 export const earnings = [
+  { ticker: "MU", company: "美光科技", date: "06/24 盘后", status: "已披露", focus: "收入 $41.46B；GAAP EPS $24.67；调整后 FCF $18.3B", reportUrl: "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm", analysisUrl: "/reports/mu-fy2026-q3" },
   { ticker: "TSLA", company: "特斯拉", date: "07/22 盘后", status: "已披露", focus: "收入 $28.24B；非 GAAP EPS $0.33；FCF −$1.09B", reportUrl: "https://www.sec.gov/Archives/edgar/data/1318605/000162828026049213/exhibit991.htm", analysisUrl: "/reports/tsla-q2-2026" },
   { ticker: "INTC", company: "英特尔", date: "07/23 盘后", status: "已披露", focus: "收入 $16.1B；非 GAAP EPS $0.42；Q3 指引上调", reportUrl: "https://www.sec.gov/Archives/edgar/data/50863/000005086326000155/q226earningsrelease.htm", analysisUrl: "/reports/intc-q2-2026" },
   { ticker: "MSFT", company: "微软", date: "07/29 盘后", status: "已披露", focus: "收入 $90.0B；Azure +43%；商业 RPO $678B", reportUrl: "https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm", analysisUrl: "/reports/msft-fy2026-q4" },
   { ticker: "AAPL", company: "苹果", date: "07/30 盘后", status: "已披露", focus: "收入 $109.42B；EPS $2.02；服务收入 +12%", reportUrl: "https://www.sec.gov/Archives/edgar/data/320193/000032019326000018/a8-kex991q3202606272026.htm", analysisUrl: "/reports/aapl-fy2026-q3" },
   { ticker: "AMZN", company: "亚马逊", date: "07/30 盘后", status: "已披露", focus: "收入 $200.6B；AWS +37%；TTM FCF −$7.6B", reportUrl: "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000024/amzn-20260630xex991.htm", analysisUrl: "/reports/amzn-q2-2026" },
   { ticker: "SPCX", company: "SpaceX", date: "08/04 盘后", status: "已披露", focus: "收入 $7.814B；调整后 EBITDA $3.538B；资本开支 $18.369B", reportUrl: "https://www.sec.gov/Archives/edgar/data/1181412/000162828026052515/earningsreleaseq22608042.htm", analysisUrl: "/reports/spcx-q2-2026" },
+  { ticker: "PLTR", company: "Palantir", date: "08/03 盘后", status: "已披露", focus: "收入 $1.94B；美国商业收入 +149%；上调全年指引", reportUrl: "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/a2026q2ex991pressrelease.htm", analysisUrl: "/reports/pltr-q2-2026" },
+  { ticker: "AMD", company: "AMD", date: "08/04 盘后", status: "已披露", focus: "收入 $11.536B；数据中心 $6.72B；Q3 指引约 $13B", reportUrl: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000121/q22026991.htm", analysisUrl: "/reports/amd-q2-2026" },
   { ticker: "SNDK", company: "SanDisk", date: "08/05 盘后", status: "已披露", focus: "收入 $8.965B；GAAP 毛利率 84.6%；新增 $14B 回购授权", reportUrl: "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndkq4-26ex991xpressrelease.htm", analysisUrl: "/reports/sndk-fy2026-q4" },
 ] as const;
 
-export const watchlist = ["SNDK", "TSLA", "MSFT", "AAPL", "SKHY", "MU", "SPCX", "INTC", "PAAS", "AMZN", "QQQ", "SPY", "VOO", "GDX"];
+export const watchlist = ["SNDK", "TSLA", "MSFT", "AAPL", "SKHY", "MU", "AMD", "PLTR", "SPCX", "INTC", "PAAS", "AMZN", "QQQ", "SPY", "VOO", "GDX"];
 
 export const internationalNews = [
   { category: "中东 / 能源", date: "08/06", impact: "WTI、通胀、航运与美债", title: "霍尔木兹方案执行障碍浮现，油价重新反弹", detail: "拟议方案允许伊朗管理进入海湾的船只，但航运业指出收费可能与美国制裁和保险条款冲突。协议可执行性下降，令 WTI 近月日线反弹 3.87%。", source: "https://gcaptain.com/shipping-industry-sees-major-obstacles-to-irans-hormuz-control-plan/", sourceLabel: "Reuters via gCaptain" },
   { category: "日本 / 外汇", date: "08/06", impact: "DXY、日元、美债与套息交易", title: "日元干预后部分回吐，市场等待美伊协议与美国非农", detail: "美元兑日元在六周低位附近企稳，说明联合干预的冲击尚未完全消退。日元再次快速走弱可能重新触发干预预期，并影响日本机构的美债配置。", source: "https://www.reuters.com/world/asia-pacific/yen-dollar-drift-iran-deal-concerns-payroll-jitters-2026-08-06/", sourceLabel: "Reuters" },
   { category: "亚洲科技", date: "08/06", impact: "SNDK、SKHY、MU 与半导体估值", title: "存储财报后的高预期落差扩散至亚洲科技股", detail: "SanDisk 与 Western Digital 强劲财报未能满足更高预期，亚洲科技指数受到 AI 投资回报与存储周期担忧拖累。对 SKHY、MU 的影响更偏估值与周期映射，不等同于公司基本面出现新披露。", source: "https://www.domenicadelcorriere.it/en/Economy/714780-stocks-diverge-with-earnings-tech-in-focus.html", sourceLabel: "AFP market report" },
+  { category: "北美经济", date: "08/06", impact: "全球增长、加元与周期股", title: "加拿大服务业连续第二个月收缩，投入价格反而继续上升", detail: "加拿大 7 月服务业 PMI 由 47.1回升至 49.1，但仍低于荣枯线；新业务连续第三个月收缩，投入价格指数由 61.2升至 64.0。增长偏弱与成本上升并存，是全球滞胀风险的旁证。", source: "https://www.reuters.com/world/americas/canadas-services-pmi-edges-up-sector-remains-contraction-2026-08-06/", sourceLabel: "Reuters" },
+  { category: "全球债市", date: "08/06", impact: "美债、黄金、成长股估值", title: "油价反弹把通胀风险重新传导至长期国债", detail: "美国 Q2 生产率改善本应缓和成本压力，但 WTI 反弹和初请仍低推动 10 年期美债官方收益率升至 4.69%。长端上行会直接压缩高久期成长股估值，并提高黄金持有成本。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve", sourceLabel: "U.S. Treasury · official rates" },
+  { category: "美日政策", date: "08/06", impact: "日元、美债与全球套息交易", title: "联合干预余波未消，美元兑日元仍处六周低位附近", detail: "市场继续评估美日联合买入日元的持续性。若日元再度快速贬值，日本可能需要更多美元流动性；使用美联储 FIMA 工具可降低直接抛售美债的压力，但不能替代日本国内政策正常化。", source: "https://www.reuters.com/world/asia-pacific/yen-dollar-drift-iran-deal-concerns-payroll-jitters-2026-08-06/", sourceLabel: "Reuters" },
 ] as const;
 
 export const stockNews = [
   { ticker: "SNDK", title: "财报后收跌 6.81%，市场从利润转向周期持续性", detail: "公司收入、毛利率与现金流均强，但约三分之二环比增长来自涨价，消费收入环比下降 32%。8 月 13 日投资者日将成为下一验证点。", source: "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndkq4-26ex991xpressrelease.htm", label: "SEC · earnings release" },
   { ticker: "SPCX", title: "限售解禁窗口开启，实际出售规模仍不可确认", detail: "首份上市后财报显示业务增长与 AI 资本开支同时激增。解禁只代表可售供给增加，不代表股份已经售出；本期不对实际抛售规模作推测。", source: "https://www.channelnewsasia.com/business/spacexs-first-quarterly-results-public-company-beat-expectations-ai-costs-hit-stock-6299041", label: "Reuters via CNA" },
-  { ticker: "MU / INTC / MSFT / AAPL / AMZN / TSLA", title: "本期无同等级 SEC 或公司 IR 重大新公告", detail: "宏观利率、油价和非农前仓位调整是更可验证的共同驱动；不使用未经证实的供应链传闻解释个股单日波动。", source: "https://apnews.com/article/stock-market-dow-warner-dow-jones-b13b60e192e74e6dc6ab222dc296b5d2", label: "Associated Press · market close" },
+  { ticker: "AMD", title: "数据中心收入翻倍，Q3 收入指引继续加速", detail: "Q2 收入同比增长 50%至 $11.536B，数据中心收入 $6.72B；公司预计 Q3 收入约 $13B、上下浮动 $300M，非 GAAP 毛利率约 56%。执行风险转向 AI 系统交付与竞争。", source: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000121/q22026991.htm", label: "SEC · AMD Q2 earnings release" },
+  { ticker: "PLTR", title: "美国商业收入增长 149%，全年收入指引升至约 $8.15B", detail: "Q2 总收入 $1.94B、同比增长 93%，美国商业收入 $764M、美国政府收入 $809M；调整后自由现金流 $1.22B。业务兑现强，但高增长持续性与估值仍需分开判断。", source: "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/a2026q2ex991pressrelease.htm", label: "SEC · Palantir Q2 earnings release" },
+  { ticker: "MU", title: "SanDisk 财报强化存储景气，也提高周期见顶敏感度", detail: "MU 最近一季收入 $41.46B、调整后自由现金流 $18.3B，Q4 收入指引 $50B±$1B；SanDisk 财报显示存储涨价仍强，同时提醒投资者关注价格贡献、库存和新增供给。", source: "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm", label: "SEC · Micron FY2026 Q3 release" },
+  { ticker: "INTC / MSFT / AAPL / AMZN / TSLA", title: "本期无同等级 SEC 或公司 IR 重大新公告", detail: "宏观利率、油价和非农前仓位调整是更可验证的共同驱动；不使用未经证实的供应链传闻解释个股单日波动。", source: "https://apnews.com/article/stock-market-dow-warner-dow-jones-b13b60e192e74e6dc6ab222dc296b5d2", label: "Associated Press · market close" },
 ] as const;
+
+export const fedPolicy = {
+  currentRange: "3.50%—3.75%",
+  bias: "维持限制性 · 加息风险高于降息",
+  checkedAt: "08/07 11:14 CST",
+  nextMeeting: "09/15—09/16（含经济预测）",
+  summary: "7 月 FOMC 以 9 比 3维持利率不变，三名反对者主张加息 25bp。官方表述仍把高于 2%目标的通胀视为主要问题；Cook 明确表示必要时准备加息。当前没有足够官方证据支持近期降息，降息路径需要就业显著恶化并伴随核心通胀持续回落。",
+  drivers: [
+    { direction: "hike", directionLabel: "支持加息", signal: "偏强", title: "通胀仍显著高于目标", detail: "Cook 表示通胀风险高于就业风险，若反通胀停滞将支持加息；7 月 FOMC 也有三票主张立即加息 25bp。", source: "https://www.federalreserve.gov/newsevents/speech/cook20260805a.htm", sourceLabel: "Federal Reserve · Cook speech" },
+    { direction: "cut", directionLabel: "支持降息", signal: "尚待确认", title: "招聘降温但裁员仍低", detail: "服务业就业分项已转为收缩、ADP 招聘放缓，但初请仍仅 19.9万、失业率此前稳定。需要连续疲弱的非农与失业率上升，才能形成可靠降息依据。", source: "https://www.bls.gov/schedule/news_release/empsit.htm", sourceLabel: "U.S. BLS · employment calendar" },
+    { direction: "neutral", directionLabel: "缓冲因素", signal: "偏鸽", title: "生产率吸收部分工资成本", detail: "Q2 非农生产率年化增长 1.4%，单位劳工成本仅增长 1.3%。若这种组合延续，经济可在不显著加息的情况下消化部分工资压力。", source: "https://www.bls.gov/news.release/prod2.nr0.htm", sourceLabel: "U.S. BLS · productivity release" },
+  ],
+  catalysts: [
+    { date: "08/07 20:30", event: "7 月非农就业报告", detail: "就业、失业率、工资与前值修订共同决定劳动市场方向。", hawkish: "就业和工资明显偏强，失业率稳定或下降。", dovish: "就业显著低于趋势、失业率上升且工资放缓。", source: "https://www.bls.gov/schedule/news_release/empsit.htm", sourceLabel: "BLS" },
+    { date: "08/12 20:30", event: "7 月 CPI", detail: "核心服务、住房和商品价格是关键，不只看能源拉动的总体数字。", hawkish: "核心通胀环比再加速，广度扩大。", dovish: "核心服务持续降温，住房与商品同步回落。", source: "https://www.bls.gov/schedule/news_release/cpi.htm", sourceLabel: "BLS" },
+    { date: "08/13 20:30", event: "7 月 PPI", detail: "观察生产端成本是否向核心 PCE 传导。", hawkish: "核心中间品与服务价格继续上升。", dovish: "生产端价格全面回落、前值下修。", source: "https://www.bls.gov/schedule/news_release/ppi.htm", sourceLabel: "BLS" },
+    { date: "09/15—09/16", event: "FOMC 与经济预测", detail: "将公布利率决定及最新经济预测，是下一次正式政策决策窗口。", hawkish: "通胀预测上修、点阵图抬高或实际加息。", dovish: "就业预测转弱、通胀下修并释放未来降息条件。", source: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", sourceLabel: "Federal Reserve" },
+  ],
+} as const;
 
 export const signals = {
   options: [{ ticker: "本期", text: "截至 08/07 09:41，未取得覆盖全部关注标的、带历史基准且可审计的完整期权逐笔数据；不把新闻摘要、单笔成交量或社交媒体截图定义为期权异动。" }],
@@ -69,6 +97,8 @@ export const signals = {
 
 export const sources = [
   ["Federal Reserve · speeches RSS", "https://www.federalreserve.gov/feeds/speeches.xml"],
+  ["Federal Reserve · July FOMC statement", "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm"],
+  ["Federal Reserve · FOMC calendar", "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"],
   ["U.S. Treasury · daily rates", "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/"],
   ["BLS · Q2 productivity", "https://www.bls.gov/news.release/prod2.nr0.htm"],
   ["BLS August 2026 calendar", "https://data.bls.gov/schedule/2026/08_sched_list.htm"],

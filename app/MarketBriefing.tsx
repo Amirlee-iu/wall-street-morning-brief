@@ -7,7 +7,7 @@ import type { EventWindow } from "./market-data";
 export type MarketIssueData = Pick<
   typeof currentIssueData,
   "briefing" | "earnings" | "events" | "internationalNews" | "markets" | "signals" | "sources" | "stockNews" | "watchlist"
->;
+> & Partial<Pick<typeof currentIssueData, "fedPolicy">>;
 
 const windows: { id: "all" | EventWindow; label: string }[] = [
   { id: "all", label: "总览" },
@@ -29,7 +29,7 @@ export function MarketBriefing({
   data?: MarketIssueData;
   issueLabel?: string;
 }) {
-  const { briefing, earnings, events, internationalNews, markets, signals, sources, stockNews, watchlist } = data;
+  const { briefing, earnings, events, fedPolicy, internationalNews, markets, signals, sources, stockNews, watchlist } = data;
   const [activeWindow, setActiveWindow] = useState<"all" | EventWindow>("all");
   const [query, setQuery] = useState("");
 
@@ -188,6 +188,45 @@ export function MarketBriefing({
           ))}
         </div>
       </section>
+
+      {fedPolicy && (
+        <section className="fed-policy-section" aria-label="美联储政策雷达">
+          <div className="fed-policy-heading">
+            <div>
+              <p className="eyebrow">FED POLICY RADAR</p>
+              <h2>美联储政策雷达</h2>
+            </div>
+            <div className="fed-policy-status">
+              <span>当前联邦基金利率</span>
+              <strong>{fedPolicy.currentRange}</strong>
+              <b>{fedPolicy.bias}</b>
+            </div>
+          </div>
+          <p className="fed-policy-summary">{fedPolicy.summary}</p>
+          <div className="fed-driver-grid">
+            {fedPolicy.drivers.map((driver) => (
+              <article key={`${driver.direction}-${driver.title}`} className={`fed-driver ${driver.direction}`}>
+                <div><span>{driver.directionLabel}</span><b>{driver.signal}</b></div>
+                <h3>{driver.title}</h3>
+                <p>{driver.detail}</p>
+                <a href={driver.source} target="_blank" rel="noreferrer">{driver.sourceLabel} ↗</a>
+              </article>
+            ))}
+          </div>
+          <div className="fed-catalysts">
+            <div className="section-heading"><h2>未来政策催化剂</h2><span>下一次 FOMC：{fedPolicy.nextMeeting}</span></div>
+            {fedPolicy.catalysts.map((item) => (
+              <article key={`${item.date}-${item.event}`}>
+                <time>{item.date}</time>
+                <div><h3>{item.event}</h3><p>{item.detail}</p></div>
+                <dl><div><dt>偏鹰条件</dt><dd>{item.hawkish}</dd></div><div><dt>偏鸽条件</dt><dd>{item.dovish}</dd></div></dl>
+                <a href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel} ↗</a>
+              </article>
+            ))}
+          </div>
+          <p className="fed-policy-note">核对时间：{fedPolicy.checkedAt}。政策方向为模型基于官方公开资料的情景判断，不代表美联储承诺，也不使用未经核验的市场概率替代官方信息。</p>
+        </section>
+      )}
 
       <section className="secondary-grid">
         <article>

@@ -32,6 +32,8 @@ test("server-renders the Wall Street briefing", async () => {
   assert.match(html, /跨资产收盘/);
   assert.match(html, /财报时间线/);
   assert.match(html, /国际重磅新闻/);
+  assert.match(html, /美联储政策雷达/);
+  assert.match(html, /3\.50%—3\.75%/);
 });
 
 test("renders verified earnings links and international sources", async () => {
@@ -46,13 +48,16 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /amzn-20260630xex991\.htm/);
   assert.match(html, /Q2 非农生产率增长 1\.4%/);
   assert.match(html, /霍尔木兹方案执行障碍浮现/);
+  assert.match(html, /加拿大服务业连续第二个月收缩/);
+  assert.match(html, /AMD/);
+  assert.match(html, /PLTR/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
   assert.match(html, /今晚非农决定下一方向/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
-  const [tesla, intel, microsoft, apple, amazon, spacex, sandisk] = await Promise.all([
+  const [tesla, intel, microsoft, apple, amazon, spacex, sandisk, amd, palantir, micron] = await Promise.all([
     render("/reports/tsla-q2-2026"),
     render("/reports/intc-q2-2026"),
     render("/reports/msft-fy2026-q4"),
@@ -60,6 +65,9 @@ test("renders detailed earnings analysis from official filings", async () => {
     render("/reports/amzn-q2-2026"),
     render("/reports/spcx-q2-2026"),
     render("/reports/sndk-fy2026-q4"),
+    render("/reports/amd-q2-2026"),
+    render("/reports/pltr-q2-2026"),
+    render("/reports/mu-fy2026-q3"),
   ]);
   const teslaHtml = await tesla.text();
   const intelHtml = await intel.text();
@@ -68,6 +76,9 @@ test("renders detailed earnings analysis from official filings", async () => {
   const amazonHtml = await amazon.text();
   const spacexHtml = await spacex.text();
   const sandiskHtml = await sandisk.text();
+  const amdHtml = await amd.text();
+  const palantirHtml = await palantir.text();
+  const micronHtml = await micron.text();
 
   assert.match(teslaHtml, /收入强，盈利质量弱/);
   assert.match(teslaHtml, /Tesla 2026 Q2 Form 10-Q/);
@@ -83,6 +94,12 @@ test("renders detailed earnings analysis from official filings", async () => {
   assert.match(spacexHtml, /SpaceX Q2 2026 Form 10-Q/);
   assert.match(sandiskHtml, /价格与数据中心双轮驱动/);
   assert.match(sandiskHtml, /SanDisk FY2026 Q4 Form 8-K/);
+  assert.match(amdHtml, /数据中心增长进入兑现期/);
+  assert.match(amdHtml, /AMD Q2 2026 earnings release/);
+  assert.match(palantirHtml, /商业与政府业务同时加速/);
+  assert.match(palantirHtml, /Palantir Q2 2026 earnings release/);
+  assert.match(micronHtml, /AI 存储景气转化为纪录现金流/);
+  assert.match(micronHtml, /Micron FY2026 Q3 earnings release/);
 });
 
 test("renders the issue archive and immutable issue page", async () => {

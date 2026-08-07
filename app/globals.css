@@ -121,9 +121,11 @@ h1 { margin: 0; font-size: clamp(48px, 7vw, 92px); line-height: .95; letter-spac
 .international-heading .eyebrow { margin: 0 0 6px; }
 .international-heading h2 { margin: 0; font-size: 34px; font-weight: 500; }
 .international-heading > p { max-width: 360px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; text-align: right; }
-.international-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.international-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
 .international-grid article { position: relative; min-width: 0; padding: 20px 20px 22px 0; }
 .international-grid article + article { padding-left: 20px; border-left: 1px solid var(--line); }
+.international-grid article:nth-child(3n + 1) { padding-left: 0; border-left: 0; }
+.international-grid article:nth-child(n + 4) { border-top: 1px solid var(--line); }
 .international-index { position: absolute; top: 16px; right: 18px; color: rgba(27, 28, 24, .14); font-family: Georgia, serif; font-size: 34px; line-height: 1; }
 .international-meta { display: flex; align-items: center; gap: 9px; margin-bottom: 15px; padding-right: 40px; }
 .international-meta span { padding: 3px 6px; color: var(--sheet); background: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .04em; }
@@ -133,6 +135,37 @@ h1 { margin: 0; font-size: clamp(48px, 7vw, 92px); line-height: .95; letter-spac
 .international-impact { margin-bottom: 12px; padding: 8px 9px; border-left: 2px solid var(--red); background: rgba(166, 56, 42, .055); color: var(--muted); font-size: 9px; line-height: 1.5; }
 .international-impact b { margin-right: 7px; color: var(--red); }
 .international-grid a { font-size: 10px; font-weight: 800; }
+
+.fed-policy-section { margin: 34px 52px 30px; padding-bottom: 26px; border-top: 5px double var(--ink); border-bottom: 1px solid var(--ink); }
+.fed-policy-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding: 24px 0 15px; }
+.fed-policy-heading .eyebrow { margin: 0 0 6px; }
+.fed-policy-heading h2 { margin: 0; font-size: 34px; font-weight: 500; }
+.fed-policy-status { display: grid; grid-template-columns: auto auto; gap: 2px 14px; align-items: baseline; text-align: right; }
+.fed-policy-status span { grid-column: 1 / -1; color: var(--muted); font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+.fed-policy-status strong { font-family: ui-monospace, monospace; font-size: 23px; }
+.fed-policy-status b { color: var(--red); font-family: Georgia, "Songti SC", serif; font-size: 14px; }
+.fed-policy-summary { margin: 0 0 20px; padding: 14px 16px; border-left: 3px solid var(--blue); background: rgba(49,94,121,.06); color: #535148; font-family: Georgia, "Songti SC", serif; font-size: 14px; line-height: 1.75; }
+.fed-driver-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.fed-driver { min-width: 0; padding: 19px 20px 21px 0; }
+.fed-driver + .fed-driver { padding-left: 20px; border-left: 1px solid var(--line); }
+.fed-driver > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.fed-driver > div span { padding: 3px 7px; color: var(--sheet); background: var(--ink); font-size: 9px; font-weight: 900; }
+.fed-driver.hike > div span { background: var(--red); }
+.fed-driver.cut > div span { background: var(--green); }
+.fed-driver > div b { color: var(--muted); font-size: 10px; }
+.fed-driver h3 { margin: 13px 0 8px; font-family: Georgia, "Songti SC", serif; font-size: 19px; line-height: 1.35; }
+.fed-driver p { margin: 0 0 11px; color: #656258; font-size: 11px; line-height: 1.7; }
+.fed-driver a, .fed-catalysts a { font-size: 10px; font-weight: 800; }
+.fed-catalysts .section-heading { padding-top: 22px; }
+.fed-catalysts > article { display: grid; grid-template-columns: 92px minmax(180px, .8fr) minmax(320px, 1.5fr) 130px; gap: 18px; align-items: start; padding: 16px 0; border-bottom: 1px dotted #aaa28f; }
+.fed-catalysts time { color: var(--red); font-family: ui-monospace, monospace; font-size: 11px; font-weight: 900; }
+.fed-catalysts h3 { margin: 0 0 6px; font-size: 16px; }
+.fed-catalysts p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.fed-catalysts dl { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; }
+.fed-catalysts dl div { padding-left: 10px; border-left: 2px solid var(--line); }
+.fed-catalysts dt { margin-bottom: 4px; color: var(--muted); font-size: 9px; font-weight: 900; }
+.fed-catalysts dd { margin: 0; font-size: 10px; line-height: 1.55; }
+.fed-policy-note { margin: 14px 0 0; color: var(--muted); font-size: 9px; line-height: 1.55; }
 
 .secondary-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 32px; margin: 8px 52px 0; padding: 0 0 34px; border-top: 5px double var(--ink); }
 .watchlist { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 16px; }
@@ -217,8 +250,12 @@ footer p { margin: 0; text-align: right; }
   .right-rail { padding: 24px 0 0; }
   .international-section { margin-left: 28px; margin-right: 28px; }
   .international-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .international-grid article:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
-  .international-grid article:nth-child(4) { border-top: 1px solid var(--line); }
+  .international-grid article:nth-child(3n + 1) { padding-left: 20px; border-left: 1px solid var(--line); }
+  .international-grid article:nth-child(2n + 1) { padding-left: 0; border-left: 0; }
+  .international-grid article:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .fed-policy-section { margin-left: 28px; margin-right: 28px; }
+  .fed-catalysts > article { grid-template-columns: 90px 1fr; }
+  .fed-catalysts dl, .fed-catalysts a { grid-column: 2; }
   .secondary-grid { margin-left: 28px; margin-right: 28px; grid-template-columns: 1fr 1fr; }
   .market-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .market-card:nth-child(4n) { border-right: 1px solid var(--line); }
@@ -247,8 +284,16 @@ footer p { margin: 0; text-align: right; }
   .international-heading { display: block; }
   .international-heading > p { max-width: none; margin-top: 8px; text-align: left; }
   .international-grid { grid-template-columns: 1fr; }
-  .international-grid article, .international-grid article + article, .international-grid article:nth-child(3) { padding: 18px 0 20px; border-left: 0; border-top: 1px solid var(--line); }
+  .international-grid article, .international-grid article + article, .international-grid article:nth-child(3n + 1) { padding: 18px 0 20px; border-left: 0; border-top: 1px solid var(--line); }
   .international-grid article:first-child { border-top: 0; }
+  .fed-policy-section { margin: 24px 18px 20px; }
+  .fed-policy-heading { display: block; }
+  .fed-policy-status { margin-top: 14px; text-align: left; justify-content: start; }
+  .fed-driver-grid { grid-template-columns: 1fr; }
+  .fed-driver, .fed-driver + .fed-driver { padding: 18px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .fed-driver:first-child { border-top: 0; }
+  .fed-catalysts > article { grid-template-columns: 1fr; gap: 9px; }
+  .fed-catalysts dl, .fed-catalysts a { grid-column: auto; }
   .secondary-grid { grid-template-columns: 1fr; gap: 4px; margin: 0 18px; }
   .market-board-heading { align-items: start; padding: 16px 18px 12px; }
   .market-board-heading > div:last-child { text-align: left; }

@@ -524,3 +524,78 @@ export const sandiskReport: EarningsReport = {
   disclaimer:
     "事实数据来自 SanDisk 向 SEC 提交的 8-K、财报新闻稿和公司 IR 演示文稿。评分、情景与验证清单属于模型分析，不构成投资建议或目标价预测；未披露的市场预期、客户数据与未来价格不作推测。",
 };
+
+export const amdReport: EarningsReport = {
+  ticker: "AMD", company: "AMD", quarter: "2026 年第二季度", publishedAt: "2026-08-04 美股盘后",
+  verdict: "数据中心增长进入兑现期，下一阶段取决于系统级交付与毛利率",
+  score: 82, scoreLabel: "财报质量评分",
+  thesis: "AMD 的收入同比增长 50%，数据中心业务已占公司收入 58%，Q3 收入指引继续指向加速增长，证明 AI 业务正从产品路线图转化为财务结果。不过，竞争已经从单颗加速器升级到整机架、网络和软件生态；判断后续价值应同时观察收入、非 GAAP 毛利率和系统交付，而不能只看客户协议规模。",
+  metrics: [
+    { label: "收入", value: "$11.536B", change: "同比 +50%", tone: "positive" },
+    { label: "数据中心收入", value: "$6.72B", change: "同比逾一倍", tone: "positive" },
+    { label: "GAAP 毛利率", value: "54%", change: "同比 +14ppt", tone: "positive" },
+    { label: "GAAP EPS", value: "$1.38", change: "同比 +156%", tone: "positive" },
+    { label: "非 GAAP EPS", value: "$1.66", change: "高于上季", tone: "positive" },
+    { label: "Q3 收入指引", value: "约 $13B", change: "±$300M", tone: "positive" },
+  ],
+  sections: [
+    { title: "一、数据中心成为主引擎", lead: "增长已从预期进入报表，但业务集中度同步上升。", points: ["数据中心收入 $6.72B，占总收入约 58%，同比增幅超过一倍。", "总收入环比增长 13%，说明增长并非只有低基数效应。", "公司预计下半年数据中心销售继续加速，Q3 收入中点较 Q2再增长约 13%。"] },
+    { title: "二、盈利质量", lead: "毛利率与营业利润同步改善，经营杠杆开始显现。", points: ["GAAP 毛利率 54%，同比提升 14个百分点；GAAP 营业利润 $1.99B。", "GAAP 净利润 $2.297B、EPS $1.38；非 GAAP EPS $1.66。", "Q3 非 GAAP 毛利率指引约 56%，能否兑现将检验产品组合与竞争性定价。"] },
+    { title: "三、下一阶段的竞争", lead: "AI 竞争已从芯片参数升级为系统交付能力。", points: ["AMD 正把 GPU、CPU、网络和机架系统组合成完整方案。", "大型客户和基础设施协议提高收入可见度，但部署里程碑、供给与软件成熟度决定实际确认速度。", "与 Nvidia 及客户自研芯片竞争，可能同时影响市场份额和毛利率。"] },
+  ],
+  positives: ["收入和数据中心业务同步高增。", "毛利率与营业利润显著改善。", "Q3 指引延续加速趋势。"],
+  risks: ["AI 收入对少数大型客户和部署节奏敏感。", "系统级交付和软件生态执行难度高于单芯片销售。", "竞争性定价可能限制毛利率扩张。"],
+  watchItems: ["Q3 收入是否达到 $13B中点。", "非 GAAP 毛利率能否保持约 56%。", "MI 系列与整机架系统的实际出货。", "数据中心客户集中度与应收账款。"],
+  sources: [{ label: "SEC · AMD Q2 2026 earnings release", url: "https://www.sec.gov/Archives/edgar/data/2488/000000248826000121/q22026991.htm" }],
+  disclaimer: "事实数据来自 AMD 向 SEC 提交的财报材料；评分与判断属于模型分析，不构成投资建议。客户协议未披露的收入确认节奏不作推测。",
+};
+
+export const palantirReport: EarningsReport = {
+  ticker: "PLTR", company: "Palantir", quarter: "2026 年第二季度", publishedAt: "2026-08-03 美股盘后",
+  verdict: "商业与政府业务同时加速，现金流强劲，但高增长预期已成为最大门槛",
+  score: 90, scoreLabel: "财报质量评分",
+  thesis: "Palantir 的总收入增长 93%，美国商业和政府收入分别增长 149%和 90%，并产生 63%调整后自由现金流率，显示 AI 需求已经形成高质量收入与现金流。风险不在当季兑现，而在极高增长率能否持续，以及估值是否已经提前计入未来多年的成功。",
+  metrics: [
+    { label: "总收入", value: "$1.94B", change: "同比 +93%", tone: "positive" },
+    { label: "美国商业收入", value: "$764M", change: "同比 +149%", tone: "positive" },
+    { label: "美国政府收入", value: "$809M", change: "同比 +90%", tone: "positive" },
+    { label: "GAAP EPS", value: "$0.41", change: "持续盈利", tone: "positive" },
+    { label: "调整后 FCF", value: "$1.22B", change: "63%利润率", tone: "positive" },
+    { label: "FY2026 收入指引", value: "$8.150B—$8.158B", change: "再次上调", tone: "positive" },
+  ],
+  sections: [
+    { title: "一、增长广度", lead: "商业与政府业务同步增长，降低了单一客户类型依赖。", points: ["美国商业收入增长 149%至 $764M，美国政府收入增长 90%至 $809M。", "美国商业剩余交易价值增长 124%至 $6.24B，合同可见度提高。", "公司当季签署 220笔金额至少 $1M的交易，说明增长并非只由少数超大合同驱动。"] },
+    { title: "二、利润与现金流", lead: "高增长已经转化为利润，而不只是订单。", points: ["GAAP 营业利润率 47%，调整后营业利润约 $1.19B、利润率 62%。", "调整后自由现金流 $1.22B、利润率 63%，现金兑现强。", "GAAP EPS $0.41；判断质量仍应同时跟踪股权激励和完全稀释股数。"] },
+    { title: "三、指引与估值约束", lead: "业务上调指引，但市场要求也随之抬高。", points: ["FY2026 收入指引升至 $8.150B—$8.158B，美国商业收入预计至少增长 134%。", "调整后自由现金流指引 $4.5B—$4.7B。", "若商业增速正常化、政府合同节奏波动或利润率回落，估值压缩可能快于基本面变化。"] },
+  ],
+  positives: ["商业与政府收入同时高速增长。", "剩余交易价值和大额合同数量提高收入可见度。", "利润率与自由现金流率均处高位。"],
+  risks: ["高估值对增长轻微放缓也高度敏感。", "政府合同具有预算与执行时点波动。", "股权激励与稀释需要持续核对。", "AI 竞争和客户自建能力可能改变长期增速。"],
+  watchItems: ["美国商业收入环比增速。", "剩余交易价值向收入的转化。", "GAAP 利润率与股权激励。", "FY2026 FCF 指引兑现。"],
+  sources: [{ label: "SEC · Palantir Q2 2026 earnings release", url: "https://www.sec.gov/Archives/edgar/data/1321655/000132165526000039/a2026q2ex991pressrelease.htm" }, { label: "Palantir IR · Q2 2026 business update", url: "https://investors.palantir.com/files/Palantir%20-%20Q2%202026%20Business%20Update.pdf" }],
+  disclaimer: "事实数据来自 Palantir 向 SEC 提交的财报及公司 IR 演示材料；评分与估值风险判断属于模型分析，不构成投资建议。",
+};
+
+export const micronReport: EarningsReport = {
+  ticker: "MU", company: "美光科技", quarter: "2026 财年第三季度", publishedAt: "2026-06-24 美股盘后",
+  verdict: "AI 存储景气转化为纪录现金流，但高毛利率同样放大周期反转风险",
+  score: 87, scoreLabel: "财报质量评分",
+  thesis: "Micron 的季度收入、净利润、经营现金流和自由现金流均创出极强表现，Q4 指引进一步上行，表明 AI 时代的内存需求和定价仍处强周期。与此同时，约 86%的下一季毛利率和纪录资本开支意味着市场已进入周期高敏感阶段；投资者需要同时跟踪价格、销量、库存和新增供给。",
+  metrics: [
+    { label: "收入", value: "$41.46B", change: "上季 $23.86B", tone: "positive" },
+    { label: "GAAP 净利润", value: "$28.24B", change: "EPS $24.67", tone: "positive" },
+    { label: "经营现金流", value: "$25.39B", change: "上季 $11.90B", tone: "positive" },
+    { label: "调整后 FCF", value: "$18.3B", change: "现金兑现强", tone: "positive" },
+    { label: "资本开支", value: "$7.1B", change: "纪录投入期", tone: "neutral" },
+    { label: "Q4 收入指引", value: "$50B ± $1B", change: "毛利率约 86%", tone: "positive" },
+  ],
+  sections: [
+    { title: "一、景气与盈利", lead: "需求、价格和产品组合共同推动纪录业绩。", points: ["收入从上季 $23.86B跃升至 $41.46B，GAAP 净利润达到 $28.24B。", "经营现金流 $25.39B、调整后自由现金流 $18.3B，证明利润已转化为现金。", "Q4 收入指引 $50B±$1B、毛利率约 86%，短期景气仍强。"] },
+    { title: "二、周期风险", lead: "极高利润率既是优势，也是均值回归风险的来源。", points: ["内存行业历史上受供给、库存和价格影响显著，高毛利率可能刺激全行业扩产。", "季度资本开支 $7.1B，未来折旧与新增产能需要由持续需求吸收。", "战略客户协议提高可见度，但不能完全消除价格和客户库存周期。"] },
+    { title: "三、与 SanDisk 的交叉验证", lead: "两家公司共同确认涨价与 AI 存储需求，也共同提示周期敏感度。", points: ["SanDisk 披露环比收入增量约三分之二来自价格，说明行业定价是当前利润跃升的重要来源。", "若销量能够在价格稳定时接替增长，周期持续性更强；若新增供给导致价格回落，利润弹性将反向放大。", "MU 后续应重点跟踪 DRAM、HBM 与 NAND 各自的供需，而不是把存储视为单一周期。"] },
+  ],
+  positives: ["收入、净利润和自由现金流同步创强。", "Q4 指引显示短期需求与定价延续。", "战略客户协议提高收入可见度。"],
+  risks: ["高毛利率存在均值回归风险。", "纪录资本开支可能带来供给与折旧压力。", "客户库存正常化可能令价格快速转弱。"],
+  watchItems: ["DRAM、HBM 与 NAND 价格变化。", "Q4 毛利率能否达到约 86%。", "资本开支和新增产能节奏。", "库存天数与客户协议兑现。"],
+  sources: [{ label: "SEC · Micron FY2026 Q3 earnings release", url: "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm" }],
+  disclaimer: "事实数据来自 Micron 向 SEC 提交的财报材料；行业周期与情景判断属于模型分析，不构成投资建议。",
+};
