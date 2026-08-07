@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-07-pm",
+    issue: "第 010 期",
+    edition: "盘前展望",
+    publishedAt: "2026-08-07 20:54 CST",
+    title: "非农意外转负压低收益率，开盘先交易宽松预期再检验增长风险",
+    stance: "中性偏多 · 防范增长误读",
+    summary: "7 月非农减少 2.3 万、前两月合计下修 10.3 万；利率下行利好成长股估值，但就业趋势转弱也抬高盈利风险。",
+    href: "/issues/2026-08-07-pm",
+  },
+  {
     id: "2026-08-07-am",
     issue: "第 009 期",
     edition: "盘后总结",

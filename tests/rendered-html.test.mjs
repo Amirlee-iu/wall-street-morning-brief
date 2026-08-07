@@ -46,14 +46,15 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /Q2 非农生产率增长 1\.4%/);
-  assert.match(html, /霍尔木兹方案执行障碍浮现/);
-  assert.match(html, /加拿大服务业连续第二个月收缩/);
+  assert.match(html, /美国 7 月非农减少 2\.3 万/);
+  assert.match(html, /霍尔木兹谈判仍受强硬派掣肘/);
+  assert.match(html, /加拿大就业增加 7\.5 万/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
-  assert.match(html, /今晚非农决定下一方向/);
+  assert.match(html, /非农意外转负压低收益率/);
+  assert.match(html, /就业转弱抬高加息门槛/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
@@ -104,7 +105,7 @@ test("renders detailed earnings analysis from official filings", async () => {
 
 test("renders the issue archive and immutable issue page", async () => {
   const archive = await render("/archive");
-  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue] = await Promise.all([
+  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue, latestPremarketIssue] = await Promise.all([
     render("/issues/2026-07-24-am"),
     render("/issues/2026-07-27-am"),
     render("/issues/2026-07-29-am"),
@@ -114,6 +115,7 @@ test("renders the issue archive and immutable issue page", async () => {
     render("/issues/2026-08-05-am"),
     render("/issues/2026-08-06-am"),
     render("/issues/2026-08-07-am"),
+    render("/issues/2026-08-07-pm"),
   ]);
   const archiveHtml = await archive.text();
   const issueHtml = await issue.text();
@@ -125,6 +127,7 @@ test("renders the issue archive and immutable issue page", async () => {
   const seventhIssueHtml = await seventhIssue.text();
   const eighthIssueHtml = await eighthIssue.text();
   const latestIssueHtml = await latestIssue.text();
+  const latestPremarketIssueHtml = await latestPremarketIssue.text();
 
   assert.match(archiveHtml, /往期归档/);
   assert.match(archiveHtml, /2026-07-24-am/);
@@ -136,6 +139,7 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(archiveHtml, /2026-08-05-am/);
   assert.match(archiveHtml, /2026-08-06-am/);
   assert.match(archiveHtml, /2026-08-07-am/);
+  assert.match(archiveHtml, /2026-08-07-pm/);
   assert.match(issueHtml, /存档版 · 第 001 期/);
   assert.match(issueHtml, /国际重磅新闻/);
   assert.match(secondIssueHtml, /存档版 · 第 002 期/);
@@ -154,4 +158,6 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(eighthIssueHtml, /SanDisk 盈利与回购强劲/);
   assert.match(latestIssueHtml, /存档版 · 第 009 期/);
   assert.match(latestIssueHtml, /SanDisk 强劲业绩仍未跨过高预期门槛/);
+  assert.match(latestPremarketIssueHtml, /存档版 · 第 010 期/);
+  assert.match(latestPremarketIssueHtml, /前两月合计下修 10\.3 万/);
 });
