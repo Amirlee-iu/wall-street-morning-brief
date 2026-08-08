@@ -24,7 +24,7 @@ const windowMeta: Record<EventWindow, { title: string; date: string }> = {
 
 export function MarketBriefing({
   data = currentIssueData,
-  issueLabel = "第 010 期",
+  issueLabel = "第 011 期",
 }: {
   data?: MarketIssueData;
   issueLabel?: string;
@@ -104,7 +104,7 @@ export function MarketBriefing({
         <section className={`timeline-grid ${activeWindows.length === 1 ? "single" : ""}`} aria-label="重要事件时间轴">
           {activeWindows.map((window) => (
             <article className="timeline-column" key={window}>
-              <header><h2>{windowMeta[window].title}</h2><time>{windowMeta[window].date}</time></header>
+              <header><h2>{windowMeta[window].title}</h2><time>{briefing.windowDates?.[window] ?? windowMeta[window].date}</time></header>
               {events.filter((event) => event.window === window).map((event) => (
                 <div className={`event ${event.impact === "高" ? "high" : ""}`} key={`${event.time}-${event.title}`}>
                   <div className="event-time">{event.time}</div>

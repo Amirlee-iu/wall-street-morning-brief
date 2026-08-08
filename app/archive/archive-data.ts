@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-08-pm",
+    issue: "第 011 期",
+    edition: "盘前展望",
+    publishedAt: "2026-08-08 22:31 CST",
+    title: "弱就业点燃科技股与黄金，下周 CPI 决定“暂停加息”交易能否延续",
+    stance: "中性偏多 · CPI 前不追高",
+    summary: "周五科技股领涨、美债收益率与美元回落、黄金走强；周末休市，下一方向由地缘跳空风险及下周 CPI/PPI 决定。",
+    href: "/issues/2026-08-08-pm",
+  },
+  {
     id: "2026-08-07-pm",
     issue: "第 010 期",
     edition: "盘前展望",

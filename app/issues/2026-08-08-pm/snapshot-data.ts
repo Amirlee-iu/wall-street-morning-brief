@@ -28,6 +28,7 @@ export const markets = [
   { name: "WTI", close: "$77.08", day: "−0.27%", week: "−8.96%", month: "+9.43%", summary: "地缘溢价震荡回吐", tone: "down", session: "08/07 WTI 近月历史日线收盘", checkedAt: "08/08 22:31 CST", source: "https://www.investing.com/commodities/crude-oil-historical-data", sourceLabel: "Investing.com · WTI 近月同源日线（非 CME 结算）", contextSource: "https://www.fx678.com/" },
   { name: "BTC", close: "$64,914.70", day: "+0.95%", week: "+3.24%", month: "+2.51%", summary: "风险偏好温和回升", tone: "up", session: "08/07 BTC/USD 24 小时日线收盘", checkedAt: "08/08 22:31 CST", source: "https://www.investing.com/crypto/bitcoin/historical-data", sourceLabel: "Investing.com · BTC/USD 24 小时同源日线" },
 ] as const;
+
 export const events = [
   { window: "previous" as EventWindow, time: "20:30", category: "就业", impact: "高", title: "美国 7 月非农减少 2.3 万，前两月合计下修 10.3 万", detail: "显著弱于市场预期。失业率由 4.2%降至 4.1%，但劳动参与率降至 61.4%；平均时薪同比放缓至 3.2%。事实更接近“低招聘、供给也收缩”，并非单一的衰退或繁荣信号。", source: "https://www.bls.gov/news.release/empsit.nr0.htm", sourceLabel: "U.S. BLS · official employment report" },
   { window: "previous" as EventWindow, time: "收盘", category: "市场", impact: "高", title: "弱就业压低收益率，科技股领涨并推动标普刷新高位", detail: "S&P 500 涨 0.6%至 7,757.64，道指涨 0.3%，纳指综合涨 1.3%。SPY、QQQ、VOO 的可审计常规时段涨幅分别为 0.61%、1.17%和 0.61%；10Y 官方日值回落 4bp 至 4.65%。", source: "https://apnews.com/article/stocks-dow-jones-iran-oil-fed-interest-rates-9d586bdbf1fb230dcf1f915dcaf50858", sourceLabel: "Associated Press · final market close" },
@@ -114,3 +115,4 @@ export const sources = [
   ["Department of Labor · claims", "https://www.dol.gov/agencies/eta/ui-claims"],
   ["SEC · SanDisk FY2026 Q4", "https://www.sec.gov/Archives/edgar/data/2023554/000162828026053346/sndkq4-26ex991xpressrelease.htm"],
 ] as const;
+

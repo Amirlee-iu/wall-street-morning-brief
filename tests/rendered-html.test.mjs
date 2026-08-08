@@ -53,7 +53,7 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /PLTR/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
-  assert.match(html, /非农意外转负压低收益率/);
+  assert.match(html, /弱就业点燃科技股与黄金/);
   assert.match(html, /就业转弱抬高加息门槛/);
 });
 
@@ -105,7 +105,7 @@ test("renders detailed earnings analysis from official filings", async () => {
 
 test("renders the issue archive and immutable issue page", async () => {
   const archive = await render("/archive");
-  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue, latestPremarketIssue] = await Promise.all([
+  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue, latestPremarketIssue, weekendPremarketIssue] = await Promise.all([
     render("/issues/2026-07-24-am"),
     render("/issues/2026-07-27-am"),
     render("/issues/2026-07-29-am"),
@@ -116,6 +116,7 @@ test("renders the issue archive and immutable issue page", async () => {
     render("/issues/2026-08-06-am"),
     render("/issues/2026-08-07-am"),
     render("/issues/2026-08-07-pm"),
+    render("/issues/2026-08-08-pm"),
   ]);
   const archiveHtml = await archive.text();
   const issueHtml = await issue.text();
@@ -128,6 +129,7 @@ test("renders the issue archive and immutable issue page", async () => {
   const eighthIssueHtml = await eighthIssue.text();
   const latestIssueHtml = await latestIssue.text();
   const latestPremarketIssueHtml = await latestPremarketIssue.text();
+  const weekendPremarketIssueHtml = await weekendPremarketIssue.text();
 
   assert.match(archiveHtml, /往期归档/);
   assert.match(archiveHtml, /2026-07-24-am/);
@@ -140,6 +142,7 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(archiveHtml, /2026-08-06-am/);
   assert.match(archiveHtml, /2026-08-07-am/);
   assert.match(archiveHtml, /2026-08-07-pm/);
+  assert.match(archiveHtml, /2026-08-08-pm/);
   assert.match(issueHtml, /存档版 · 第 001 期/);
   assert.match(issueHtml, /国际重磅新闻/);
   assert.match(secondIssueHtml, /存档版 · 第 002 期/);
@@ -160,4 +163,6 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(latestIssueHtml, /SanDisk 强劲业绩仍未跨过高预期门槛/);
   assert.match(latestPremarketIssueHtml, /存档版 · 第 010 期/);
   assert.match(latestPremarketIssueHtml, /前两月合计下修 10\.3 万/);
+  assert.match(weekendPremarketIssueHtml, /存档版 · 第 011 期/);
+  assert.match(weekendPremarketIssueHtml, /美股周末休市/);
 });
