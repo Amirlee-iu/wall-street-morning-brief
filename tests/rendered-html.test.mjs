@@ -47,13 +47,13 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
   assert.match(html, /美国 7 月非农减少 2\.3 万/);
-  assert.match(html, /霍尔木兹谈判仍受强硬派掣肘/);
+  assert.match(html, /油价押注霍尔木兹协议/);
   assert.match(html, /加拿大就业增加 7\.5 万/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
-  assert.match(html, /弱就业点燃科技股与黄金/);
+  assert.match(html, /弱就业推动科技股创新高/);
   assert.match(html, /就业转弱抬高加息门槛/);
 });
 
@@ -105,7 +105,7 @@ test("renders detailed earnings analysis from official filings", async () => {
 
 test("renders the issue archive and immutable issue page", async () => {
   const archive = await render("/archive");
-  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue, latestPremarketIssue, weekendPremarketIssue] = await Promise.all([
+  const [issue, secondIssue, thirdIssue, morningIssue, fifthIssue, sixthIssue, seventhIssue, eighthIssue, latestIssue, latestPremarketIssue, weekendPremarketIssue, mondayPostmarketIssue] = await Promise.all([
     render("/issues/2026-07-24-am"),
     render("/issues/2026-07-27-am"),
     render("/issues/2026-07-29-am"),
@@ -117,6 +117,7 @@ test("renders the issue archive and immutable issue page", async () => {
     render("/issues/2026-08-07-am"),
     render("/issues/2026-08-07-pm"),
     render("/issues/2026-08-08-pm"),
+    render("/issues/2026-08-10-am"),
   ]);
   const archiveHtml = await archive.text();
   const issueHtml = await issue.text();
@@ -130,6 +131,7 @@ test("renders the issue archive and immutable issue page", async () => {
   const latestIssueHtml = await latestIssue.text();
   const latestPremarketIssueHtml = await latestPremarketIssue.text();
   const weekendPremarketIssueHtml = await weekendPremarketIssue.text();
+  const mondayPostmarketIssueHtml = await mondayPostmarketIssue.text();
 
   assert.match(archiveHtml, /往期归档/);
   assert.match(archiveHtml, /2026-07-24-am/);
@@ -143,6 +145,7 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(archiveHtml, /2026-08-07-am/);
   assert.match(archiveHtml, /2026-08-07-pm/);
   assert.match(archiveHtml, /2026-08-08-pm/);
+  assert.match(archiveHtml, /2026-08-10-am/);
   assert.match(issueHtml, /存档版 · 第 001 期/);
   assert.match(issueHtml, /国际重磅新闻/);
   assert.match(secondIssueHtml, /存档版 · 第 002 期/);
@@ -165,4 +168,6 @@ test("renders the issue archive and immutable issue page", async () => {
   assert.match(latestPremarketIssueHtml, /前两月合计下修 10\.3 万/);
   assert.match(weekendPremarketIssueHtml, /存档版 · 第 011 期/);
   assert.match(weekendPremarketIssueHtml, /美股周末休市/);
+  assert.match(mondayPostmarketIssueHtml, /存档版 · 第 012 期/);
+  assert.match(mondayPostmarketIssueHtml, /中国 7 月 CPI 与 PPI 同步降温/);
 });

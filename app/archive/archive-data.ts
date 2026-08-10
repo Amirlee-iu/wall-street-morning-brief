@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-10-am",
+    issue: "第 012 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-10 09:16 CST",
+    title: "弱就业推动科技股创新高，今晚先看利率交易能否跨过周末风险",
+    stance: "中性偏多 · CPI 前控制追价",
+    summary: "QQQ 涨 1.17%、10Y 降 4bp、黄金涨 2.44%；周末中国通胀降温，但霍尔木兹航运与库存风险仍未解除。",
+    href: "/issues/2026-08-10-am",
+  },
+  {
     id: "2026-08-08-pm",
     issue: "第 011 期",
     edition: "盘前展望",
