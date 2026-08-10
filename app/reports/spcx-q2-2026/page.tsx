@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { EarningsAnalysis } from "../EarningsAnalysis";
 import { spacexReport } from "../report-data";
 

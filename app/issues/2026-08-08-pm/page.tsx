@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import type { Metadata } from "next";
 import { MarketBriefing, type MarketIssueData } from "../../MarketBriefing";
 import * as snapshotIssue from "./snapshot-data";
@@ -10,4 +12,3 @@ export const metadata: Metadata = {
 export default function ArchivedIssuePage() {
   return <MarketBriefing data={snapshotIssue as MarketIssueData} issueLabel="存档版 · 第 011 期" />;
 }
-

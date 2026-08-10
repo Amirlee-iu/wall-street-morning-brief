@@ -3,6 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 import * as currentIssueData from "./market-data";
 import type { EventWindow } from "./market-data";
+import { sitePath } from "./site-path";
 
 export type MarketIssueData = Pick<
   typeof currentIssueData,
@@ -123,7 +124,7 @@ export function MarketBriefing({
           <span>WALL STREET DAILY BRIEF</span>
           <span>北京时间 · {briefing.updatedAt}</span>
           <div className="edition-links">
-            <div className="edition-meta"><a href="/archive">往期归档</a><span>{issueLabel}</span></div>
+            <div className="edition-meta"><a href={sitePath("/archive")}>往期归档</a><span>{issueLabel}</span></div>
             <div className="masthead-actions" data-export-ignore="true">
               <button className="action-button" type="button" onClick={handleShare}>转发 ↗</button>
               <button className="action-button" type="button" onClick={handleExport} disabled={isExporting}>
@@ -219,7 +220,7 @@ export function MarketBriefing({
                       <a href={item.reportUrl} target="_blank" rel="noreferrer">直达财报 ↗</a>
                     )}
                     {"analysisUrl" in item && item.analysisUrl && (
-                      <a className="analysis-link" href={item.analysisUrl}>财报分析 →</a>
+                      <a className="analysis-link" href={sitePath(item.analysisUrl)}>财报分析 →</a>
                     )}
                   </div>
                 </div>

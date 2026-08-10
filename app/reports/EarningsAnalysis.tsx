@@ -1,11 +1,12 @@
 import type { EarningsReport } from "./report-data";
+import { sitePath } from "../site-path";
 
 export function EarningsAnalysis({ report }: { report: EarningsReport }) {
   return (
     <main className="analysis-shell">
       <nav className="analysis-nav">
-        <a href="/">← 返回最新晨报</a>
-        <a href="/archive">往期归档</a>
+        <a href={sitePath("/")}>← 返回最新晨报</a>
+        <a href={sitePath("/archive")}>往期归档</a>
       </nav>
 
       <header className="analysis-hero">

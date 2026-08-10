@@ -1,5 +1,8 @@
+export const dynamic = "force-static";
+
 import type { Metadata } from "next";
 import { archivedIssues } from "./archive-data";
+import { sitePath } from "../site-path";
 
 export const metadata: Metadata = {
   title: "往期归档｜华尔街晨报",
@@ -10,7 +13,7 @@ export default function ArchivePage() {
   return (
     <main className="archive-shell">
       <nav className="archive-nav">
-        <a href="/">← 返回最新一期</a>
+        <a href={sitePath("/")}>← 返回最新一期</a>
         <span>WALL STREET DAILY BRIEF</span>
       </nav>
       <header className="archive-hero">
@@ -20,7 +23,7 @@ export default function ArchivePage() {
       </header>
       <section className="archive-list" aria-label="华尔街晨报往期列表">
         {archivedIssues.map((issue) => (
-          <a className="archive-card" href={issue.href} key={issue.id}>
+          <a className="archive-card" href={sitePath(issue.href)} key={issue.id}>
             <div className="archive-date">
               <strong>{issue.publishedAt.slice(5, 10).replace("-", ".")}</strong>
               <span>{issue.publishedAt.slice(0, 4)}</span>
