@@ -31,6 +31,10 @@ test("server-renders the Wall Street briefing", async () => {
   assert.match(html, /<title>华尔街晨报｜美股决策驾驶舱<\/title>/);
   assert.match(html, /跨资产收盘/);
   assert.match(html, /财报时间线/);
+  assert.match(html, /WATCHLIST NEWS/);
+  assert.match(html, /自选股要闻/);
+  assert.match(html, /转发 ↗/);
+  assert.match(html, /导出图片 ↓/);
   assert.match(html, /国际重磅新闻/);
   assert.match(html, /美联储政策雷达/);
   assert.match(html, /3\.50%—3\.75%/);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as currentIssueData from "./market-data";
 import type { EventWindow } from "./market-data";
 
@@ -29,9 +29,12 @@ export function MarketBriefing({
   data?: MarketIssueData;
   issueLabel?: string;
 }) {
+  const paperRef = useRef<HTMLElement>(null);
   const { briefing, earnings, events, fedPolicy, internationalNews, markets, signals, sources, stockNews, watchlist } = data;
   const [activeWindow, setActiveWindow] = useState<"all" | EventWindow>("all");
   const [query, setQuery] = useState("");
+  const [actionMessage, setActionMessage] = useState("");
+  const [isExporting, setIsExporting] = useState(false);
 
   const visibleNews = useMemo(() => {
     const normalized = query.trim().toUpperCase();
@@ -41,13 +44,83 @@ export function MarketBriefing({
 
   const activeWindows: EventWindow[] = activeWindow === "all" ? ["previous", "today", "future"] : [activeWindow];
 
+  const showActionMessage = (message: string) => {
+    setActionMessage(message);
+    window.setTimeout(() => setActionMessage(""), 2400);
+  };
+
+  const handleShare = async () => {
+    const url = window.location.href;
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: `华尔街晨报 · ${issueLabel}`,
+          text: briefing.headline,
+          url,
+        });
+        showActionMessage("已打开转发菜单");
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+        showActionMessage("链接已复制");
+      } else {
+        showActionMessage("请复制浏览器地址转发");
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      showActionMessage("转发失败，请稍后重试");
+    }
+  };
+
+  const handleExport = async () => {
+    if (!paperRef.current || isExporting) return;
+
+    setIsExporting(true);
+    setActionMessage("正在生成长图…");
+
+    try {
+      const { toBlob } = await import("html-to-image");
+      const imageBlob = await toBlob(paperRef.current, {
+        backgroundColor: "#f3efe4",
+        cacheBust: true,
+        pixelRatio: 1.5,
+        filter: (node) =>
+          !(node instanceof HTMLElement && node.dataset.exportIgnore === "true"),
+      });
+      if (!imageBlob) throw new Error("Unable to create image");
+
+      const link = document.createElement("a");
+      const issueDate = briefing.updatedAt.slice(0, 10).replaceAll("/", "-");
+      link.download = `wall-street-brief-${issueDate}-${issueLabel.replace(/\s/g, "")}.png`;
+      link.href = URL.createObjectURL(imageBlob);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      showActionMessage("整页长图已导出");
+    } catch {
+      showActionMessage("导出失败，请刷新后重试");
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
-    <main className="newspaper-shell">
+    <main className="newspaper-shell" ref={paperRef}>
       <header className="masthead">
         <div className="masthead-topline">
           <span>WALL STREET DAILY BRIEF</span>
           <span>北京时间 · {briefing.updatedAt}</span>
-          <span className="edition-links"><a href="/archive">往期归档</a><span>{issueLabel}</span></span>
+          <div className="edition-links">
+            <div className="edition-meta"><a href="/archive">往期归档</a><span>{issueLabel}</span></div>
+            <div className="masthead-actions" data-export-ignore="true">
+              <button className="action-button" type="button" onClick={handleShare}>转发 ↗</button>
+              <button className="action-button" type="button" onClick={handleExport} disabled={isExporting}>
+                {isExporting ? "生成中…" : "导出图片 ↓"}
+              </button>
+              {actionMessage && <span className="action-feedback" role="status" aria-live="polite">{actionMessage}</span>}
+            </div>
+          </div>
         </div>
         <div className="masthead-grid">
           <div>
@@ -143,26 +216,35 @@ export function MarketBriefing({
             </div>
           </section>
 
-          <section className="rail-section">
-            <div className="section-heading"><h2>自选股要闻</h2><span>{visibleNews.length} 条更新</span></div>
-            <label className="search-field">
+        </aside>
+      </div>
+
+      <section className="stock-news-section" aria-label="自选股要闻">
+        <div className="stock-news-heading">
+          <div>
+            <p className="eyebrow">WATCHLIST NEWS</p>
+            <h2>自选股要闻</h2>
+          </div>
+          <div className="stock-news-tools">
+            <span>{visibleNews.length} 条更新</span>
+            <label className="search-field stock-search">
               <span className="sr-only">筛选自选股新闻</span>
               <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="输入代码筛选，例如 MU" />
             </label>
-            <div className="news-list">
-              {visibleNews.map((item) => (
-                <article key={`${item.ticker}-${item.title}`}>
-                  <span className="ticker-tag">{item.ticker}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.detail}</p>
-                  <a href={item.source} target="_blank" rel="noreferrer">{item.label} · 英文原文 ↗</a>
-                </article>
-              ))}
-              {visibleNews.length === 0 && <p className="empty">本期没有匹配的高重要度更新。</p>}
-            </div>
-          </section>
-        </aside>
-      </div>
+          </div>
+        </div>
+        <div className="stock-news-grid">
+          {visibleNews.map((item) => (
+            <article className="stock-news-card" key={`${item.ticker}-${item.title}`}>
+              <span className="ticker-tag">{item.ticker}</span>
+              <h3>{item.title}</h3>
+              <p>{item.detail}</p>
+              <a href={item.source} target="_blank" rel="noreferrer">{item.label} · 英文原文 ↗</a>
+            </article>
+          ))}
+          {visibleNews.length === 0 && <p className="empty">本期没有匹配的高重要度更新。</p>}
+        </div>
+      </section>
 
       <section className="international-section" aria-label="国际重磅新闻">
         <div className="international-heading">
