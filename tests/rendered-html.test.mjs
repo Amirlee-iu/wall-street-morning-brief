@@ -55,6 +55,10 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /加拿大就业增加 7\.5 万/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
+  assert.match(html, /GOOGL/);
+  assert.match(html, /META/);
+  assert.match(html, /Alphabet/);
+  assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
   assert.match(html, /弱就业推动科技股创新高/);
@@ -62,7 +66,7 @@ test("renders verified earnings links and international sources", async () => {
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
-  const [tesla, intel, microsoft, apple, amazon, spacex, sandisk, amd, palantir, micron] = await Promise.all([
+  const [tesla, intel, microsoft, apple, amazon, spacex, sandisk, amd, palantir, micron, alphabet, meta] = await Promise.all([
     render("/reports/tsla-q2-2026"),
     render("/reports/intc-q2-2026"),
     render("/reports/msft-fy2026-q4"),
@@ -73,6 +77,8 @@ test("renders detailed earnings analysis from official filings", async () => {
     render("/reports/amd-q2-2026"),
     render("/reports/pltr-q2-2026"),
     render("/reports/mu-fy2026-q3"),
+    render("/reports/alphabet-q2-2026"),
+    render("/reports/meta-q2-2026"),
   ]);
   const teslaHtml = await tesla.text();
   const intelHtml = await intel.text();
@@ -84,6 +90,8 @@ test("renders detailed earnings analysis from official filings", async () => {
   const amdHtml = await amd.text();
   const palantirHtml = await palantir.text();
   const micronHtml = await micron.text();
+  const alphabetHtml = await alphabet.text();
+  const metaHtml = await meta.text();
 
   assert.match(teslaHtml, /收入强，盈利质量弱/);
   assert.match(teslaHtml, /Tesla 2026 Q2 Form 10-Q/);
@@ -105,6 +113,10 @@ test("renders detailed earnings analysis from official filings", async () => {
   assert.match(palantirHtml, /Palantir Q2 2026 earnings release/);
   assert.match(micronHtml, /AI 存储景气转化为纪录现金流/);
   assert.match(micronHtml, /Micron FY2026 Q3 earnings release/);
+  assert.match(alphabetHtml, /核心业务与云计算强劲加速/);
+  assert.match(alphabetHtml, /Alphabet Q2 2026 earnings release/);
+  assert.match(metaHtml, /广告增长保持强劲/);
+  assert.match(metaHtml, /Meta Investor Relations · Q2 2026 results/);
 });
 
 test("renders the issue archive and immutable issue page", async () => {

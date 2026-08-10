@@ -599,3 +599,55 @@ export const micronReport: EarningsReport = {
   sources: [{ label: "SEC · Micron FY2026 Q3 earnings release", url: "https://www.sec.gov/Archives/edgar/data/723125/000072312526000013/a2026q3ex991-pressrelease.htm" }],
   disclaimer: "事实数据来自 Micron 向 SEC 提交的财报材料；行业周期与情景判断属于模型分析，不构成投资建议。",
 };
+
+export const alphabetReport: EarningsReport = {
+  ticker: "GOOGL", company: "Alphabet", quarter: "2026 年第二季度", publishedAt: "2026-07-22 美股盘后",
+  verdict: "核心业务与云计算强劲加速，但 EPS 被投资收益放大，AI 资本开支已超过经营现金流",
+  score: 74, scoreLabel: "财报质量评分",
+  thesis: "Alphabet 的经营业务表现强劲：收入增长 24%，Google Cloud 收入增长 82%、营业利润增长至 $8.81B，搜索与 YouTube 广告也保持双位数增长。但 $9.11 的 EPS 主要受到约 $98.0B 股权证券未实现净收益放大，不能作为可持续盈利基准；同时季度资本开支 $44.92B 已高于 $39.07B 经营现金流。下一阶段的关键是云与 AI 收入能否持续覆盖基础设施投资、融资和潜在股本稀释。",
+  metrics: [
+    { label: "收入", value: "$119.80B", change: "同比 +24%", tone: "positive" },
+    { label: "Google Cloud", value: "$24.77B", change: "同比 +82%", tone: "positive" },
+    { label: "营业利润率", value: "34%", change: "同比 +2ppt", tone: "positive" },
+    { label: "稀释 EPS", value: "$9.11", change: "含巨额未实现收益", tone: "neutral" },
+    { label: "资本开支", value: "$44.92B", change: "同比约翻倍", tone: "negative" },
+    { label: "推算自由现金流", value: "−$5.86B", change: "经营现金流减资本开支", tone: "negative" },
+  ],
+  sections: [
+    { title: "一、核心业务增长质量", lead: "搜索、YouTube 与云业务共同增长，收入结构并非单一引擎。", points: ["Google Services 收入 $94.54B，同比增长 15%；搜索及其他收入增长 17%，YouTube 广告增长 13%。", "Google Cloud 收入 $24.77B，同比增长 82%；营业利润增至 $8.81B，利润率约 35.6%，说明 AI 基础设施需求已转化为分部盈利。", "合并营业利润 $40.77B，同比增长 30%，营业利润率升至 34%，核心经营杠杆仍然向上。"] },
+    { title: "二、为什么不能直接使用 $9.11 EPS", lead: "本季净利润与经营利润之间存在罕见的大额非经营差异。", points: ["其他收入净额达到 $97.98B，主要来自股权证券未实现净收益；普通股股东可得净利润因此升至 $112.11B。", "这类未实现收益会随被投企业估值变化而波动，既不等于当季现金流，也不能作为下一季度盈利基准。", "评估经营趋势应优先看营业利润、分部利润和现金流，而不是只看 EPS 同比增长 294%。"] },
+    { title: "三、AI 投资与融资压力", lead: "资本开支已经超过当季经营现金流，增长与资本回报必须同步验证。", points: ["经营现金流 $39.07B，购置物业设备 $44.92B；按公司常用口径推算，自由现金流约为 −$5.86B。", "公司在 6 月通过普通股、强制可转债优先股筹得净额 $49.6B，并发行高级无担保票据取得净额 $20.3B，主要用于扩展 AI 基础设施与通用公司用途。", "公司另设最高 $40B ATM 发行计划，截至季末尚未出售股份；投资者需要持续监测实际发行与每股稀释。"] },
+    { title: "四、下一季判断框架", lead: "云业务增长是最大正向变量，资本效率与投资收益波动是最大不确定性。", points: ["乐观情景：Cloud 继续高速增长、利润率保持高位，AI 基础设施投入转化为可持续现金流。", "中性情景：收入维持强劲，但资本开支和融资需求使自由现金流恢复慢于利润增长。", "悲观情景：云增速正常化、搜索广告受压或被投资产估值回落，同时 ATM 发行带来稀释。"] },
+  ],
+  positives: ["搜索、YouTube 与 Cloud 均实现双位数增长。", "Cloud 收入增长 82%，分部利润达到 $8.81B。", "合并营业利润率提升至 34%。"],
+  risks: ["EPS 受到约 $98B 未实现投资收益显著放大。", "季度资本开支超过经营现金流，自由现金流转负。", "普通股及强制可转债优先股融资提高潜在稀释和资本成本。", "AI 基础设施回报依赖长期需求、利用率和竞争格局。"],
+  watchItems: ["Google Cloud 收入增速与分部利润率。", "季度资本开支、经营现金流及自由现金流。", "ATM 计划实际发行数量和价格。", "搜索查询增长、AI 功能变现与广告单价。", "股权投资未实现收益或损失对净利润的影响。"],
+  sources: [{ label: "SEC · Alphabet Q2 2026 earnings release", url: "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm" }],
+  disclaimer: "事实数据来自 Alphabet 向 SEC 提交的 Q2 2026 财报新闻稿。自由现金流为经营现金流减购置物业设备的算术推导；评分、情景与判断属于模型分析，不构成投资建议。",
+};
+
+export const metaReport: EarningsReport = {
+  ticker: "META", company: "Meta Platforms", quarter: "2026 年第二季度", publishedAt: "2026-07-29 美股盘后",
+  verdict: "广告增长保持强劲，但法律费用、裁员与 AI 资本开支使利润和自由现金流明显承压",
+  score: 60, scoreLabel: "财报质量评分",
+  thesis: "Meta 的核心广告业务依然健康：收入增长 28%，广告展示量增长 14%、平均广告价格增长 12%，Q3 收入指引也继续增长。但总成本增长 55%，营业利润率由 43%降至 31%，自由现金流仅 $784M。财务压力既包含 $2.40B 法律费用和 $1.18B 裁员费用等阶段性项目，也包含全年 $130B—$145B AI 资本开支这一长期承诺；市场需要区分一次性费用与结构性资本强度。",
+  metrics: [
+    { label: "收入", value: "$60.80B", change: "同比 +28%", tone: "positive" },
+    { label: "营业利润率", value: "31%", change: "同比 −12ppt", tone: "negative" },
+    { label: "稀释 EPS", value: "$6.18", change: "同比 −13%", tone: "negative" },
+    { label: "季度资本开支", value: "$31.08B", change: "含融资租赁本金", tone: "negative" },
+    { label: "自由现金流", value: "$0.784B", change: "上年 $8.55B", tone: "negative" },
+    { label: "Q3 收入指引", value: "$61B—$64B", change: "汇率约拖累 1%", tone: "positive" },
+  ],
+  sections: [
+    { title: "一、广告基本面仍然强", lead: "用户规模、广告供给与定价同时增长，核心收入并未失速。", points: ["Family 日活跃人数 3.60B，同比增长 3%。", "广告展示量增长 14%，平均广告价格增长 12%，共同推动广告收入增至 $59.36B。", "Q3 总收入指引 $61B—$64B，按公司假设汇率约造成 1%同比逆风。"] },
+    { title: "二、利润率为何大幅回落", lead: "成本增长既有一次性因素，也有 AI 与组织调整的结构性投入。", points: ["总成本和费用增长 55%至 $42.03B，营业利润下降 8%至 $18.78B，营业利润率由 43%降至 31%。", "费用中包括 $2.40B 法律诉讼相关计提，以及 5 月裁员相关的 $1.18B 离职费用。", "Reality Labs 营业亏损 $4.62B，仍是核心应用利润的重要抵消项。"] },
+    { title: "三、现金流与 AI 资本周期", lead: "经营现金流仍高，但绝大部分被基础设施投入吸收。", points: ["经营现金流 $31.86B；购置物业设备与融资租赁本金合计 $31.08B，因此自由现金流仅 $784M。", "全年资本开支指引收窄至 $130B—$145B，下限较此前提高，表明 AI 算力投入并未放缓。", "现金、现金等价物与有价证券 $90.26B，同时长期债务 $83.66B；流动性充足，但资本结构需要与投资回报一起判断。"] },
+    { title: "四、下一季判断框架", lead: "广告增长能否覆盖资本开支，是未来估值方向的核心。", points: ["乐观情景：AI 提升广告推荐与定价，收入增长维持高位，同时法律和裁员费用消退。", "中性情景：收入继续增长，但资本开支与 Reality Labs 亏损使自由现金流恢复缓慢。", "悲观情景：广告价格或用户参与度转弱，监管损失扩大，而基础设施承诺难以及时下调。"] },
+  ],
+  positives: ["收入增长 28%，广告展示量与单价同步上升。", "Q3 收入指引延续增长。", "经营现金流保持在 $31.86B，资产负债表流动性充足。"],
+  risks: ["营业利润率同比下降 12个百分点。", "自由现金流由 $8.55B降至 $784M。", "全年资本开支 $130B—$145B，对利用率和变现提出高要求。", "法律、青少年保护与全球监管事项可能带来额外损失。", "Reality Labs 持续大额亏损。"],
+  watchItems: ["广告展示量、广告价格与 Family 用户参与度。", "季度资本开支及自由现金流恢复速度。", "法律费用是否继续发生，以及全年费用指引变化。", "Reality Labs 营业亏损。", "AI 功能对广告转化、企业收入和利润率的可验证贡献。"],
+  sources: [{ label: "Meta Investor Relations · Q2 2026 results", url: "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx" }],
+  disclaimer: "事实数据来自 Meta 官方 Investor Relations Q2 2026 财报新闻稿。评分、情景与资本回报判断属于模型分析，不构成投资建议；未披露的 AI 收入贡献不作估算。",
+};
