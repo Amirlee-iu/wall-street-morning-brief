@@ -80,10 +80,21 @@ export function MarketBriefing({
 
     try {
       const { toBlob } = await import("html-to-image");
+      const exportWidth = Math.ceil(paperRef.current.getBoundingClientRect().width);
+      const exportHeight = Math.ceil(paperRef.current.scrollHeight);
       const imageBlob = await toBlob(paperRef.current, {
         backgroundColor: "#f3efe4",
         cacheBust: true,
+        width: exportWidth,
+        height: exportHeight,
         pixelRatio: 1.5,
+        style: {
+          width: `${exportWidth}px`,
+          height: `${exportHeight}px`,
+          maxWidth: "none",
+          margin: "0",
+          overflow: "visible",
+        },
         filter: (node) =>
           !(node instanceof HTMLElement && node.dataset.exportIgnore === "true"),
       });
