@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-11-am",
+    issue: "第 013 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-11 08:30 CST",
+    title: "油价与长债收益率反弹压住风险偏好，CPI 成为本周第一道闸门",
+    stance: "中性偏谨慎 · CPI 前防范油价再通胀",
+    summary: "SPY 跌 0.03%、QQQ 跌 0.30%，10Y 升 7bp 至 4.72%，WTI 近月期货涨 5.07%；CPI 是本周第一个方向闸门。",
+    href: "/issues/2026-08-11-am",
+  },
+  {
     id: "2026-08-10-am",
     issue: "第 012 期",
     edition: "盘后总结",

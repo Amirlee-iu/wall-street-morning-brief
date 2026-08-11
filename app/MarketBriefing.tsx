@@ -25,7 +25,7 @@ const windowMeta: Record<EventWindow, { title: string; date: string }> = {
 
 export function MarketBriefing({
   data = currentIssueData,
-  issueLabel = "第 012 期",
+  issueLabel = "第 013 期",
 }: {
   data?: MarketIssueData;
   issueLabel?: string;

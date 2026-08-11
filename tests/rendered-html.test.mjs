@@ -50,8 +50,8 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /美国 7 月非农减少 2\.3 万/);
-  assert.match(html, /油价押注霍尔木兹协议/);
+  assert.match(html, /油价与收益率上行，宽基 ETF 温和收低/);
+  assert.match(html, /NYMEX WTI 9 月近月期货单日升 5\.07%/);
   assert.match(html, /加拿大就业增加 7\.5 万/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
@@ -61,8 +61,8 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
   assert.match(html, /08\/14 20:30/);
-  assert.match(html, /弱就业推动科技股创新高/);
-  assert.match(html, /就业转弱抬高加息门槛/);
+  assert.match(html, /油价与长债收益率反弹压住风险偏好/);
+  assert.match(html, /CPI 前防范能源再通胀/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
