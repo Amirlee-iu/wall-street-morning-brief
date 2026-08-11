@@ -23,6 +23,8 @@ const windowMeta: Record<EventWindow, { title: string; date: string }> = {
   future: { title: "未来 7 天", date: "08/08—08/14" },
 };
 
+const MOBILE_EXPORT_WIDTH = 540;
+
 export function MarketBriefing({
   data = currentIssueData,
   issueLabel = "第 013 期",
@@ -77,20 +79,25 @@ export function MarketBriefing({
     if (!paperRef.current || isExporting) return;
 
     setIsExporting(true);
-    setActionMessage("正在生成长图…");
+    setActionMessage("正在生成手机长图…");
+
+    const paper = paperRef.current;
+    const previousExportMode = paper.dataset.exportMode;
 
     try {
       const { toBlob } = await import("html-to-image");
-      const exportWidth = Math.ceil(paperRef.current.getBoundingClientRect().width);
-      const exportHeight = Math.ceil(paperRef.current.scrollHeight);
-      const imageBlob = await toBlob(paperRef.current, {
+      paper.dataset.exportMode = "mobile";
+      await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+
+      const exportHeight = Math.ceil(paper.scrollHeight);
+      const imageBlob = await toBlob(paper, {
         backgroundColor: "#f3efe4",
         cacheBust: true,
-        width: exportWidth,
+        width: MOBILE_EXPORT_WIDTH,
         height: exportHeight,
-        pixelRatio: 1.5,
+        pixelRatio: 2,
         style: {
-          width: `${exportWidth}px`,
+          width: `${MOBILE_EXPORT_WIDTH}px`,
           height: `${exportHeight}px`,
           maxWidth: "none",
           margin: "0",
@@ -109,10 +116,12 @@ export function MarketBriefing({
       link.click();
       link.remove();
       window.setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-      showActionMessage("整页长图已导出");
+      showActionMessage("1080px 手机长图已导出");
     } catch {
       showActionMessage("导出失败，请刷新后重试");
     } finally {
+      if (previousExportMode) paper.dataset.exportMode = previousExportMode;
+      else delete paper.dataset.exportMode;
       setIsExporting(false);
     }
   };
@@ -128,7 +137,7 @@ export function MarketBriefing({
             <div className="masthead-actions" data-export-ignore="true">
               <button className="action-button" type="button" onClick={handleShare}>转发 ↗</button>
               <button className="action-button" type="button" onClick={handleExport} disabled={isExporting}>
-                {isExporting ? "生成中…" : "导出图片 ↓"}
+                {isExporting ? "生成中…" : "导出手机长图 ↓"}
               </button>
               {actionMessage && <span className="action-feedback" role="status" aria-live="polite">{actionMessage}</span>}
             </div>

@@ -34,7 +34,7 @@ test("server-renders the Wall Street briefing", async () => {
   assert.match(html, /WATCHLIST NEWS/);
   assert.match(html, /自选股要闻/);
   assert.match(html, /转发 ↗/);
-  assert.match(html, /导出图片 ↓/);
+  assert.match(html, /导出手机长图 ↓/);
   assert.match(html, /国际重磅新闻/);
   assert.match(html, /美联储政策雷达/);
   assert.match(html, /3\.50%—3\.75%/);
