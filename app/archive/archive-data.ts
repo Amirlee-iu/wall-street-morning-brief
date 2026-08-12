@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-08-12-am",
+    issue: "第 014 期",
+    edition: "盘后总结",
+    publishedAt: "2026-08-12 08:30 CST",
+    title: "科技与宽基同步回撤，CPI 前油价—通胀链条仍是市场第一变量",
+    stance: "中性偏谨慎 · CPI 前防范油价再通胀",
+    summary: "SPY 跌 0.32%、QQQ 跌 0.34%，10Y 回落 2bp 至 4.70%，WTI 近月期货再涨 1.58%；今晚 CPI 是本周第一道验证。",
+    href: "/issues/2026-08-12-am",
+  },
+  {
     id: "2026-08-11-am",
     issue: "第 013 期",
     edition: "盘后总结",
