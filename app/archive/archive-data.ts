@@ -1,5 +1,15 @@
 export const archivedIssues = [
   {
+    id: "2026-09-18-am",
+    issue: "第 015 期",
+    edition: "盘后总结",
+    publishedAt: "2026-09-18 08:30 CST",
+    title: "宽基与科技股反弹，联储决议后的长端利率仍是下一道估值闸门",
+    stance: "中性偏多 · 降息落地后仍须防长端利率",
+    summary: "SPY 收于 $762.60、QQQ 收于 $716.92；科技反弹跑赢宽基。未能同源核对的跨资产日线明确标为暂无可信数据。",
+    href: "/issues/2026-09-18-am",
+  },
+  {
     id: "2026-08-12-am",
     issue: "第 014 期",
     edition: "盘后总结",

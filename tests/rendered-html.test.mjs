@@ -50,8 +50,8 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /SPY 与 QQQ 同步回撤，收于日内低位附近/);
-  assert.match(html, /WTI 近月期货再涨 1\.58%/);
+  assert.match(html, /SPY 与 QQQ 反弹，科技股明显跑赢宽基/);
+  assert.match(html, /暂无可信数据/);
   assert.match(html, /加拿大就业增加 7\.5 万/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /08\/14 20:30/);
-  assert.match(html, /科技与宽基同步回撤/);
-  assert.match(html, /CPI 前防范能源再通胀/);
+  assert.match(html, /09\/17/);
+  assert.match(html, /宽基与科技股反弹/);
+  assert.match(html, /降息落地后仍须防长端利率/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
