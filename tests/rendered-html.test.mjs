@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /09\/17/);
-  assert.match(html, /宽基与科技股反弹/);
-  assert.match(html, /降息落地后仍须防长端利率/);
+  assert.match(html, /09\/18/);
+  assert.match(html, /科技反弹延续但市场广度有限/);
+  assert.match(html, /科技反弹后观察利率与市场广度/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
