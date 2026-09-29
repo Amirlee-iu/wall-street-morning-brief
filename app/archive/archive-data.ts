@@ -1,4 +1,5 @@
 export const archivedIssues = [
+  { id: "2026-09-29-am", issue: "第 017 期", edition: "盘后总结", publishedAt: "2026-09-29 08:30 CST", title: "周末后先等数据确认：不以未交叉核对的行情为风险资产定方向", stance: "中性 · 等待可审计收盘与利率数据确认", summary: "本期不以单一来源或旧值填补市场卡片；联储 RSS 最新为 Cook 关于 AI 与经济的演讲。", href: "/issues/2026-09-29-am" },
   {
     id: "2026-09-22-am",
     issue: "第 016 期",
