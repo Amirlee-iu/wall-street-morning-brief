@@ -2,22 +2,22 @@ export type EventWindow = "previous" | "today" | "future";
 
 export const briefing = {
   edition: "盘后总结",
-  updatedAt: "2026-09-29 08:30 CST",
-  nextUpdate: "2026-09-30 08:30 CST",
-  stance: "中性 · 等待可审计收盘与利率数据确认",
-  score: 50,
-  windowDates: { previous: "周五 · 09/25", today: "周一 · 09/29", future: "09/30—10/06" },
-  headline: "周末后先等数据确认：不以未交叉核对的行情为风险资产定方向",
+  updatedAt: "2026-10-20 08:30 CST",
+  nextUpdate: "2026-10-21 08:30 CST",
+  stance: "中性偏多 · 科技反弹须经利率验证",
+  score: 57,
+  windowDates: { previous: "周一 · 10/19", today: "周二 · 10/20", future: "10/21—10/27" },
+  headline: "科技股领涨反弹，市场仍需长端利率与宏观数据给出第二次确认",
   summary:
-    "周末后进入新的一周。本轮检索取得了部分非统一来源的市场摘要，但未能取得覆盖 SPY、QQQ、VOO 及跨资产、且可复核的同源收盘至收盘序列；因此本期全部明确显示为“暂无可信数据”，不使用单一网页、盘中价或旧值拼接行情。联储官方 RSS 最新条目为 Cook 关于 AI 与经济的演讲；本周更重要的是官方政策表述、收益率曲线和宏观数据能否共同确认风险偏好。",
+    "10/19 美股常规时段收盘：SPY 收于 $766.48（+0.42%）、QQQ 收于 $718.36（+1.21%）、VOO 收于 $704.60（+0.43%），均为前一收盘至收盘变化。科技反弹强于宽基，但本轮未能在截稿前取得可信的同源跨资产日线，故 10Y、美元、黄金、原油与 BTC 继续明确留空。后续的关键不是单日反弹，而是长端利率与宏观数据是否允许估值扩张延续。",
   inference:
     "市场判断基于公开资料的编辑性推断，不构成投资建议；事实、模型判断与数据缺口分开标注，所有时间已换算为北京时间。ETF 使用 08/11 美股常规时段收盘；10Y 使用 U.S. Treasury 08/11 官方日值；DXY、XAU/USD 与 BTC 分别采用来源标签注明的日线时区及口径。",
 };
 
 export const markets = [
-  { name: "SPY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "09/25 常规时段收盘待同源历史序列核对；不使用单一摘要报价", checkedAt: "09/29 08:30 CST", source: "https://finance.yahoo.com/quote/SPY/history/", sourceLabel: "SPY 历史行情源（待核）" },
-  { name: "QQQ", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "09/25 常规时段收盘待同源历史序列核对；不使用单一摘要报价", checkedAt: "09/29 08:30 CST", source: "https://finance.yahoo.com/quote/QQQ/history/", sourceLabel: "QQQ 历史行情源（待核）" },
-  { name: "VOO", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "09/25 常规时段收盘待同源历史序列核对；不使用单一摘要报价", checkedAt: "09/29 08:30 CST", source: "https://finance.yahoo.com/quote/VOO/history/", sourceLabel: "VOO 历史行情源（待核）" },
+  { name: "SPY", close: "$766.48", day: "+0.42%", week: "−1.49%", month: "+0.63%", summary: "反弹收高", tone: "up", session: "10/19 美股常规时段收盘；周/月基准为 10/12、09/18", checkedAt: "10/20 08:30 CST", source: "https://finance.yahoo.com/quote/SPY/history/", sourceLabel: "Yahoo Finance · SPY 同源历史日线" },
+  { name: "QQQ", close: "$718.36", day: "+1.21%", week: "暂无可信基准", month: "暂无可信基准", summary: "科技领涨反弹", tone: "up", session: "10/19 美股常规时段收盘；仅核对日变动", checkedAt: "10/20 08:30 CST", source: "https://exa.ai/library/markets/stock/QQQ?date=2026-10-19&view=daily", sourceLabel: "Exa Markets · 10/19 可审计收盘记录" },
+  { name: "VOO", close: "$704.60", day: "+0.43%", week: "暂无可信基准", month: "暂无可信基准", summary: "随宽基反弹", tone: "up", session: "10/19 美股常规时段收盘；仅核对日变动", checkedAt: "10/20 08:30 CST", source: "https://exa.ai/library/markets/stock/VOO?date=2026-10-19&view=daily", sourceLabel: "Exa Markets · 10/19 可审计收盘记录" },
   { name: "10Y 美债", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "官方日值待核", tone: "neutral", session: "Treasury 官方 XML 本轮连接超时；不沿用旧日值", checkedAt: "09/18 08:30 CST", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/", sourceLabel: "U.S. Treasury · 官方日值（待可用）" },
   { name: "DXY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "日线待核", tone: "neutral", session: "未取得同源日线，禁止使用盘中报价", checkedAt: "09/18 08:30 CST", source: "https://www.investing.com/indices/usdollar-historical-data", sourceLabel: "DXY 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
   { name: "现货黄金", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "日线待核", tone: "neutral", session: "未取得同源 XAU/USD 日线，禁止使用盘中报价", checkedAt: "09/18 08:30 CST", source: "https://www.investing.com/currencies/xau-usd-historical-data", sourceLabel: "XAU/USD 历史行情源（待核）", contextSource: "https://www.fx678.com/" },

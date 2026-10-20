@@ -1,4 +1,5 @@
 export const archivedIssues = [
+  { id: "2026-10-20-am", issue: "第 018 期", edition: "盘后总结", publishedAt: "2026-10-20 08:30 CST", title: "科技股领涨反弹，市场仍需长端利率与宏观数据给出第二次确认", stance: "中性偏多 · 科技反弹须经利率验证", summary: "10/19 SPY 收$766.48、QQQ收$718.36、VOO收$704.60；跨资产未核实部分仍明确留空。", href: "/issues/2026-10-20-am" },
   { id: "2026-09-29-am", issue: "第 017 期", edition: "盘后总结", publishedAt: "2026-09-29 08:30 CST", title: "周末后先等数据确认：不以未交叉核对的行情为风险资产定方向", stance: "中性 · 等待可审计收盘与利率数据确认", summary: "本期不以单一来源或旧值填补市场卡片；联储 RSS 最新为 Cook 关于 AI 与经济的演讲。", href: "/issues/2026-09-29-am" },
   {
     id: "2026-09-22-am",
