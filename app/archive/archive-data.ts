@@ -1,4 +1,5 @@
 export const archivedIssues = [
+  { id: "2026-11-11-am", issue: "第 020 期", edition: "盘后总结", publishedAt: "2026-11-11 08:30 CST", title: "CPI 高于预期推升利率，科技与宽基同步回撤", stance: "偏谨慎 · 通胀重估压制高估值资产", summary: "11/10 SPY 收 $749.92、QQQ 收 $674.76、VOO 收 $689.50；10Y 官方日值升至 4.98%。", href: "/issues/2026-11-11-am" },
   { id: "2026-10-21-am", issue: "第 019 期", edition: "盘后总结", publishedAt: "2026-10-21 08:30 CST", title: "宽基继续反弹、QQQ 小幅回落，利率与盈利验证仍决定市场广度", stance: "中性 · 宽基反弹，科技短线分化", summary: "10/20 SPY收$769.05、QQQ收$717.63、VOO收$706.80；跨资产未核实部分继续留空。", href: "/issues/2026-10-21-am" },
   { id: "2026-10-20-am", issue: "第 018 期", edition: "盘后总结", publishedAt: "2026-10-20 08:30 CST", title: "科技股领涨反弹，市场仍需长端利率与宏观数据给出第二次确认", stance: "中性偏多 · 科技反弹须经利率验证", summary: "10/19 SPY 收$766.48、QQQ收$718.36、VOO收$704.60；跨资产未核实部分仍明确留空。", href: "/issues/2026-10-20-am" },
   { id: "2026-09-29-am", issue: "第 017 期", edition: "盘后总结", publishedAt: "2026-09-29 08:30 CST", title: "周末后先等数据确认：不以未交叉核对的行情为风险资产定方向", stance: "中性 · 等待可审计收盘与利率数据确认", summary: "本期不以单一来源或旧值填补市场卡片；联储 RSS 最新为 Cook 关于 AI 与经济的演讲。", href: "/issues/2026-09-29-am" },

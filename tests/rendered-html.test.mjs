@@ -37,7 +37,7 @@ test("server-renders the Wall Street briefing", async () => {
   assert.match(html, /导出手机长图 ↓/);
   assert.match(html, /国际重磅新闻/);
   assert.match(html, /美联储政策雷达/);
-  assert.match(html, /3\.50%—3\.75%/);
+  assert.match(html, /3\.75%—4\.00%/);
 });
 
 test("renders verified earnings links and international sources", async () => {
@@ -50,9 +50,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /SPY 与 QQQ 反弹，科技股明显跑赢宽基/);
+  assert.match(html, /10 月 CPI 与核心 CPI 均高于预期/);
   assert.match(html, /暂无可信数据/);
-  assert.match(html, /加拿大就业增加 7\.5 万/);
+  assert.match(html, /和平谈判预期压低油价/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /GOOGL/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /10\/20/);
-  assert.match(html, /宽基继续反弹、QQQ 小幅回落/);
-  assert.match(html, /宽基反弹，科技短线分化/);
+  assert.match(html, /11\/10/);
+  assert.match(html, /CPI 高于预期推升利率/);
+  assert.match(html, /通胀重估压制高估值资产/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
