@@ -50,7 +50,7 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /10 月 CPI 与核心 CPI 均高于预期/);
+  assert.match(html, /芯片龙头事件放大波动/);
   assert.match(html, /暂无可信数据/);
   assert.match(html, /和平谈判预期压低油价/);
   assert.match(html, /AMD/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /11\/10/);
-  assert.match(html, /CPI 高于预期推升利率/);
-  assert.match(html, /通胀重估压制高估值资产/);
+  assert.match(html, /11\/12/);
+  assert.match(html, /油价、收益率与芯片不确定性叠加/);
+  assert.match(html, /油价与利率再抬头/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
