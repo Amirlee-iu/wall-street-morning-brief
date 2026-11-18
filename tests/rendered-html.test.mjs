@@ -50,9 +50,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /科技承压，QQQ 跌幅显著大于宽基/);
+  assert.match(html, /AI 与芯片股领跌，QQQ 跌幅扩大/);
   assert.match(html, /暂无可信数据/);
-  assert.match(html, /供给回升压住油价/);
+  assert.match(html, /芯片板块回撤扩散至亚洲与欧美市场/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /GOOGL/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /11\/13/);
-  assert.match(html, /PPI 虽低于预期/);
-  assert.match(html, /利率上行压制科技估值/);
+  assert.match(html, /11\/16/);
+  assert.match(html, /AI 估值担忧触发广泛回撤/);
+  assert.match(html, /AI 风险重估扩大/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {

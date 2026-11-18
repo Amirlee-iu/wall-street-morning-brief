@@ -1,4 +1,5 @@
 export const archivedIssues = [
+  { id: "2026-11-18-am", issue: "第 023 期", edition: "盘后总结", publishedAt: "2026-11-18 08:30 CST", title: "AI 估值担忧触发广泛回撤，收益率回落未能托住科技股", stance: "偏谨慎 · AI 风险重估扩大", summary: "11/16 SPY 收 $739.95、QQQ 收 $661.75、VOO 收 $680.26；10Y 官方日值回落至 5.12%。", href: "/issues/2026-11-18-am" },
   { id: "2026-11-17-am", issue: "第 022 期", edition: "盘后总结", publishedAt: "2026-11-17 08:30 CST", title: "PPI 虽低于预期，长端利率与芯片抛压仍压制科技股", stance: "偏谨慎 · 利率上行压制科技估值", summary: "11/13 SPY 收 $754.37、QQQ 收 $679.89、VOO 收 $693.38；10Y 官方日值升至 5.15%。", href: "/issues/2026-11-17-am" },
   { id: "2026-11-13-am", issue: "第 021 期", edition: "盘后总结", publishedAt: "2026-11-13 08:30 CST", title: "油价、收益率与芯片不确定性叠加，指数震荡收低", stance: "偏谨慎 · 油价与利率再抬头", summary: "11/12 SPY 收 $757.12、QQQ 收 $688.17、VOO 收 $696.00；10Y 官方日值升至 5.10%。", href: "/issues/2026-11-13-am" },
   { id: "2026-11-11-am", issue: "第 020 期", edition: "盘后总结", publishedAt: "2026-11-11 08:30 CST", title: "CPI 高于预期推升利率，科技与宽基同步回撤", stance: "偏谨慎 · 通胀重估压制高估值资产", summary: "11/10 SPY 收 $749.92、QQQ 收 $674.76、VOO 收 $689.50；10Y 官方日值升至 4.98%。", href: "/issues/2026-11-11-am" },
