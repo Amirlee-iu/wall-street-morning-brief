@@ -2,36 +2,36 @@ export type EventWindow = "previous" | "today" | "future";
 
 export const briefing = {
   edition: "盘后总结",
-  updatedAt: "2026-11-18 08:30 CST",
-  nextUpdate: "2026-11-19 08:30 CST",
-  stance: "偏谨慎 · AI 风险重估扩大",
-  score: 24,
-  windowDates: { previous: "周一 · 11/16", today: "周二 · 11/17", future: "11/18—11/24" },
-  headline: "AI 估值担忧触发广泛回撤，收益率回落未能托住科技股",
+  updatedAt: "2026-11-19 08:30 CST",
+  nextUpdate: "2026-11-20 08:30 CST",
+  stance: "偏谨慎 · AI 链持续去风险",
+  score: 20,
+  windowDates: { previous: "周二 · 11/17", today: "周三 · 11/18", future: "11/19—11/25" },
+  headline: "AI 去风险延续，收益率下行仍未扭转科技与宽基回撤",
   summary:
-    "11/16 美股常规时段收盘：SPY 收于 $739.95（−1.91%）、QQQ 收于 $661.75（−2.67%）、VOO 收于 $680.26（−1.89%）。U.S. Treasury 官方日曲线显示 10Y 小降至 5.12%、2Y 降至 4.83%。公开报道显示 AI 与半导体股继续承压，收益率回落未能抵消估值与公司特异性不确定性。",
+    "11/17 美股常规时段收盘：SPY 收于 $732.44（−1.01%）、QQQ 收于 $656.95（−0.73%）、VOO 收于 $673.19（−1.04%）。U.S. Treasury 官方日曲线显示 10Y 降至 5.10%、2Y 降至 4.80%。公开报道显示 AI 去风险持续、美元仍偏强；利率回落未能扭转风险资产的广泛承压。",
   inference:
-    "市场判断基于公开资料的编辑性推断，不构成投资建议；事实、模型判断与数据缺口分开标注，所有时间已换算为北京时间。ETF 使用 11/16 美股常规时段收盘；10Y 使用 U.S. Treasury 11/16 官方日值；未能取得同源日线的 DXY、黄金、WTI、BTC 明确留空。",
+    "市场判断基于公开资料的编辑性推断，不构成投资建议；事实、模型判断与数据缺口分开标注，所有时间已换算为北京时间。ETF 使用 11/17 美股常规时段收盘；10Y 使用 U.S. Treasury 11/17 官方日值；未能取得同源日线的 DXY、黄金、WTI、BTC 明确留空。",
 };
 
 export const markets = [
-  { name: "SPY", close: "$739.95", day: "−1.91%", week: "+0.63%", month: "—", summary: "风险偏好下挫", tone: "down", session: "11/16 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/18 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · SPY 同源历史日线" },
-  { name: "QQQ", close: "$661.75", day: "−2.67%", week: "+0.86%", month: "—", summary: "AI 链显著回撤", tone: "down", session: "11/16 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/18 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · QQQ 同源历史日线" },
-  { name: "VOO", close: "$680.26", day: "−1.89%", week: "+0.63%", month: "—", summary: "宽基同步下跌", tone: "down", session: "11/16 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/18 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=VOO%3APCQ%3AUSD", sourceLabel: "Financial Times · VOO 同源历史日线" },
-  { name: "10Y 美债", close: "5.12%", day: "−3bp", week: "+26bp", month: "+3bp", summary: "高位小幅回落", tone: "down", session: "11/16 U.S. Treasury 日收益率曲线；周/月基准为 11/06、10/16", checkedAt: "11/18 08:30 CST", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
-  { name: "DXY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得报道中的美元指数变动，未将其冒充同源日线收盘", checkedAt: "11/18 08:30 CST", source: "https://www.investing.com/indices/usdollar-historical-data", sourceLabel: "DXY 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "现货黄金", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得现货报道口径，未将其冒充 XAU/USD 日线收盘", checkedAt: "11/18 08:30 CST", source: "https://www.investing.com/currencies/xau-usd-historical-data", sourceLabel: "XAU/USD 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "WTI", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "近月口径待核", tone: "neutral", session: "报道显示 12 月合约收于 $85.38，但未取得可交叉核对的同源多周期日线", checkedAt: "11/18 08:30 CST", source: "https://www.investing.com/commodities/crude-oil-historical-data", sourceLabel: "WTI near-month 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "BTC", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "UTC 日线待核", tone: "neutral", session: "未取得可交叉核对的 UTC 日线收盘", checkedAt: "11/18 08:30 CST", source: "https://finance.yahoo.com/quote/BTC-USD/history/", sourceLabel: "BTC-USD 历史行情源（待核）" },
+  { name: "SPY", close: "$732.44", day: "−1.01%", week: "−0.39%", month: "—", summary: "连续回撤", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · SPY 同源历史日线" },
+  { name: "QQQ", close: "$656.95", day: "−0.73%", week: "+0.13%", month: "—", summary: "科技再度走弱", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · QQQ 同源历史日线" },
+  { name: "VOO", close: "$673.19", day: "−1.04%", week: "−0.41%", month: "—", summary: "宽基继续承压", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=VOO%3APCQ%3AUSD", sourceLabel: "Financial Times · VOO 同源历史日线" },
+  { name: "10Y 美债", close: "5.10%", day: "−2bp", week: "+24bp", month: "−5bp", summary: "连续小幅下行", tone: "down", session: "11/17 U.S. Treasury 日收益率曲线；周/月基准为 11/06、10/19", checkedAt: "11/19 08:30 CST", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
+  { name: "DXY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得报道中的美元指数变动，未将其冒充同源日线收盘", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/indices/usdollar-historical-data", sourceLabel: "DXY 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "现货黄金", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得现货报道口径，未将其冒充 XAU/USD 日线收盘", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/currencies/xau-usd-historical-data", sourceLabel: "XAU/USD 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "WTI", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "近月口径待核", tone: "neutral", session: "报道显示 12 月合约盘中回升，但未取得可交叉核对的同源多周期日线", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/commodities/crude-oil-historical-data", sourceLabel: "WTI near-month 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "BTC", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "UTC 日线待核", tone: "neutral", session: "未取得可交叉核对的 UTC 日线收盘", checkedAt: "11/19 08:30 CST", source: "https://finance.yahoo.com/quote/BTC-USD/history/", sourceLabel: "BTC-USD 历史行情源（待核）" },
 ] as const;
 
 export const events = [
-  { window: "previous" as EventWindow, time: "收盘", category: "市场", impact: "高", title: "AI 与芯片股领跌，QQQ 跌幅扩大", detail: "11/16 常规时段，SPY 收于 $739.95（−1.91%），QQQ 收于 $661.75（−2.67%），VOO 收于 $680.26（−1.89%）。公开报道将半导体和 AI 风险重估列为主要背景；指数下跌不等同于所有公司的基本面同步恶化。", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · ETF 历史收盘" },
-  { window: "previous" as EventWindow, time: "收盘", category: "利率", impact: "高", title: "官方 10Y 回落至 5.12%，2Y 降至 4.83%", detail: "U.S. Treasury 11/16 日收益率曲线显示，10Y 较 11/13 下降 3bp、2Y 下降 5bp。利率回落未能阻止科技股走弱，说明本轮交易还包含盈利预期与 AI 估值的非利率因素。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
-  { window: "previous" as EventWindow, time: "盘中", category: "能源 / 汇率", impact: "中", title: "油价回落、美元走强，未能扭转风险资产抛压", detail: "Reuters 报道称 WTI 下跌至 $85.38，美元指数继续走高；收益率小幅回落。油价下降可能缓和后续通胀压力，但当日市场更集中于 AI 风险与公司特异性不确定性。", source: "https://live.euronext.com/en/financial-news/stocks-end-lower-ahead-nvidia-earnings-and-anthropic-ipo-oil-drops", sourceLabel: "Reuters · global market close" },
-  { window: "today" as EventWindow, time: "盘后", category: "财报 / AI", impact: "高", title: "Nvidia 公布季度业绩，成为 AI 链估值验证点", detail: "Nvidia 已向 SEC 提交 11 月 17 日业绩材料：季度收入 $115.8B、同比 +103%、GAAP EPS $2.70。该公司并非本页关注清单标的，页面不生成其独立财报分析；市场影响应聚焦其指引、管理层沟通和对供应链资本开支的可验证信息。", source: "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000088/q3fy27pr.htm", sourceLabel: "SEC EDGAR · NVIDIA Q3 release" },
-  { window: "today" as EventWindow, time: "全天", category: "美联储", impact: "中", title: "Waller 谈支付与代币化，不等同于货币政策前瞻", detail: "Waller 最新演讲聚焦代币化、支付基础设施、治理和金融稳定。演讲未就利率路径作出新的直接承诺，因此不把技术主题讲话写成鹰鸽信号。", source: "https://www.federalreserve.gov/newsevents/speech/waller20261117a.htm", sourceLabel: "Federal Reserve · Waller speech" },
-  { window: "future" as EventWindow, time: "11/18 23:00", category: "就业", impact: "中", title: "美国年度工伤与疾病统计", detail: "这不是高频就业或通胀指标。市场更可能关注当日 AI 龙头业绩及风险偏好变化；利率路径仍以 PCE、就业与 FOMC 沟通为较高权重证据。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
+  { window: "previous" as EventWindow, time: "收盘", category: "市场", impact: "高", title: "AI 去风险延续，三大 ETF 同步收低", detail: "11/17 常规时段，SPY 收于 $732.44（−1.01%），QQQ 收于 $656.95（−0.73%），VOO 收于 $673.19（−1.04%）。Reuters 报道显示 AI 交易去杠杆与半导体压力仍是主导线索；不把指数表现替代对单一公司的基本面判断。", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · ETF 历史收盘" },
+  { window: "previous" as EventWindow, time: "收盘", category: "利率", impact: "高", title: "官方 10Y 降至 5.10%，2Y 降至 4.80%", detail: "U.S. Treasury 11/17 日收益率曲线显示，10Y 较前日下降 2bp、2Y 下降 3bp。利率下行未扭转股市回撤，意味着市场还在重估 AI 盈利路径与风险溢价。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
+  { window: "previous" as EventWindow, time: "盘后", category: "财报 / AI", impact: "高", title: "Nvidia 业绩与指引高于市场预期，但常规交易时段抛压仍在", detail: "Reuters 报道称，Nvidia 季度业绩优于预期，Q4 收入指引为 $126B—$134B，且未假设中国数据中心芯片销售。该公司不在本页关注清单内；其影响应聚焦对 AI 资本开支和供应链验证，而非直接外推至所有芯片公司。", source: "https://www.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-5034180", sourceLabel: "Reuters · NVIDIA results" },
+  { window: "today" as EventWindow, time: "21:30", category: "美联储", impact: "高", title: "FOMC 10 月会议纪要", detail: "会议纪要将提供委员对通胀、劳动力市场与下一步政策的内部讨论。鹰派信号是更广泛支持加息或担忧 AI 需求推动通胀；偏鸽信号是强调增长/就业下行风险。纪要记录的是 10 月信息集，需与后续数据分开阅读。", source: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", sourceLabel: "Federal Reserve · FOMC calendar" },
+  { window: "today" as EventWindow, time: "全天", category: "美联储", impact: "中", title: "Barr 最新讲话聚焦普惠社区，并非直接政策信号", detail: "联储 RSS 显示 Barr 发布了关于美国弱势社区投资的讲话。若未出现关于通胀、就业或利率路径的明确表态，不应将主题演讲机械归类为鹰派或鸽派。", source: "https://www.federalreserve.gov/feeds/speeches.xml", sourceLabel: "Federal Reserve · speeches RSS" },
+  { window: "future" as EventWindow, time: "11/20 23:00", category: "就业", impact: "中", title: "美国 10 月州就业与失业数据", detail: "州层面数据可补充观察劳动力市场的区域分化，但不替代全国就业报告。重点是是否出现跨州、跨行业一致走弱，而非单一州的月度波动。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
   { window: "future" as EventWindow, time: "11/20 23:00", category: "就业", impact: "中", title: "美国 10 月州就业与失业数据", detail: "州层面数据可补充观察劳动力市场的区域分化，但不替代全国就业报告。重点是是否出现跨州、跨行业一致走弱，而非单一州的月度波动。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
   { window: "future" as EventWindow, time: "11/18 23:00", category: "就业", impact: "中", title: "美国年度工伤与疾病统计", detail: "该报告不是通常意义上的高频就业指引，但属于官方劳动力市场信息。利率路径的更高权重仍来自 PPI、就业报告与 FOMC 沟通。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
 ] as const;
@@ -75,7 +75,7 @@ export const stockNews = [
 export const fedPolicy = {
   currentRange: "3.75%—4.00%",
   bias: "偏鹰 · 12 月前等待更多通胀证据",
-  checkedAt: "11/18 08:30 CST",
+  checkedAt: "11/19 08:30 CST",
   nextMeeting: "12/08—12/09（含经济预测）",
   summary: "10 月 FOMC 将目标区间维持在 3.75%—4.00%，但 Cook 与 Hammack 主张当次上调 25bp；声明称通胀仍然偏高。最新 BLS PPI 显示，10 月总体环比 +0.3%，剔除食品、能源和贸易服务环比 +0.5%。事实层面，核心价格压力尚未消失；模型层面，是否加息、幅度及路径仍须由后续就业、PCE 与 12 月会议决定，市场概率不是政策承诺。",
   drivers: [
@@ -91,8 +91,8 @@ export const fedPolicy = {
 } as const;
 
 export const signals = {
-  options: [{ ticker: "本期", text: "截至 11/18 08:30，未取得覆盖全部关注标的、带历史基准且可审计的完整期权逐笔数据；不把新闻摘要、单笔成交量或社交媒体截图定义为期权异动。" }],
-  ratings: [{ ticker: "本期", text: "截至 11/18 08:30，未取得投行原始报告或至少两家高可信来源交叉确认的重大机构评级变动；聚合站目标价变化不作为事实写入。" }],
+  options: [{ ticker: "本期", text: "截至 11/19 08:30，未取得覆盖全部关注标的、带历史基准且可审计的完整期权逐笔数据；不把新闻摘要、单笔成交量或社交媒体截图定义为期权异动。" }],
+  ratings: [{ ticker: "本期", text: "截至 11/19 08:30，未取得投行原始报告或至少两家高可信来源交叉确认的重大机构评级变动；聚合站目标价变化不作为事实写入。" }],
 };
 
 export const sources = [
