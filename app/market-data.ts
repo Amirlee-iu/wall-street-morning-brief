@@ -2,34 +2,35 @@ export type EventWindow = "previous" | "today" | "future";
 
 export const briefing = {
   edition: "盘后总结",
-  updatedAt: "2026-11-19 08:30 CST",
-  nextUpdate: "2026-11-20 08:30 CST",
-  stance: "偏谨慎 · AI 链持续去风险",
-  score: 20,
-  windowDates: { previous: "周二 · 11/17", today: "周三 · 11/18", future: "11/19—11/25" },
-  headline: "AI 去风险延续，收益率下行仍未扭转科技与宽基回撤",
+  updatedAt: "2026-11-20 08:30 CST",
+  nextUpdate: "2026-11-23 08:30 CST",
+  stance: "偏谨慎 · 鹰派纪要压住估值",
+  score: 26,
+  windowDates: { previous: "周三 · 11/18", today: "周四 · 11/19", future: "11/20—11/26" },
+  headline: "纪要强化加息路径，科技企稳但宽基仍承压",
   summary:
-    "11/17 美股常规时段收盘：SPY 收于 $732.44（−1.01%）、QQQ 收于 $656.95（−0.73%）、VOO 收于 $673.19（−1.04%）。U.S. Treasury 官方日曲线显示 10Y 降至 5.10%、2Y 降至 4.80%。公开报道显示 AI 去风险持续、美元仍偏强；利率回落未能扭转风险资产的广泛承压。",
+    "11/18 美股常规时段收盘：SPY 收于 $730.20（−0.31%）、QQQ 收于 $659.51（+0.39%）、VOO 收于 $671.31（−0.28%）。U.S. Treasury 官方日曲线显示 10Y 降至 5.07%、2Y 持平于 4.80%。10 月 FOMC 纪要显示，几乎所有委员认为后续加息可能合适；这为利率路径提供了官方证据，但不是 12 月决议。",
   inference:
-    "市场判断基于公开资料的编辑性推断，不构成投资建议；事实、模型判断与数据缺口分开标注，所有时间已换算为北京时间。ETF 使用 11/17 美股常规时段收盘；10Y 使用 U.S. Treasury 11/17 官方日值；未能取得同源日线的 DXY、黄金、WTI、BTC 明确留空。",
+    "市场判断基于公开资料的编辑性推断，不构成投资建议；事实、模型判断与数据缺口分开标注，所有时间已换算为北京时间。ETF 使用 11/18 美股常规时段收盘；10Y 使用 U.S. Treasury 11/18 官方日值；未能取得同源日线的 DXY、黄金、WTI、BTC 明确留空。",
 };
 
 export const markets = [
-  { name: "SPY", close: "$732.44", day: "−1.01%", week: "−0.39%", month: "—", summary: "连续回撤", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · SPY 同源历史日线" },
-  { name: "QQQ", close: "$656.95", day: "−0.73%", week: "+0.13%", month: "—", summary: "科技再度走弱", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · QQQ 同源历史日线" },
-  { name: "VOO", close: "$673.19", day: "−1.04%", week: "−0.41%", month: "—", summary: "宽基继续承压", tone: "down", session: "11/17 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/19 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=VOO%3APCQ%3AUSD", sourceLabel: "Financial Times · VOO 同源历史日线" },
-  { name: "10Y 美债", close: "5.10%", day: "−2bp", week: "+24bp", month: "−5bp", summary: "连续小幅下行", tone: "down", session: "11/17 U.S. Treasury 日收益率曲线；周/月基准为 11/06、10/19", checkedAt: "11/19 08:30 CST", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
-  { name: "DXY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得报道中的美元指数变动，未将其冒充同源日线收盘", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/indices/usdollar-historical-data", sourceLabel: "DXY 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "现货黄金", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得现货报道口径，未将其冒充 XAU/USD 日线收盘", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/currencies/xau-usd-historical-data", sourceLabel: "XAU/USD 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "WTI", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "近月口径待核", tone: "neutral", session: "报道显示 12 月合约盘中回升，但未取得可交叉核对的同源多周期日线", checkedAt: "11/19 08:30 CST", source: "https://www.investing.com/commodities/crude-oil-historical-data", sourceLabel: "WTI near-month 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
-  { name: "BTC", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "UTC 日线待核", tone: "neutral", session: "未取得可交叉核对的 UTC 日线收盘", checkedAt: "11/19 08:30 CST", source: "https://finance.yahoo.com/quote/BTC-USD/history/", sourceLabel: "BTC-USD 历史行情源（待核）" },
+  { name: "SPY", close: "$730.20", day: "−0.31%", week: "−0.69%", month: "—", summary: "宽基弱势整理", tone: "down", session: "11/18 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/20 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · SPY 同源历史日线" },
+  { name: "QQQ", close: "$659.51", day: "+0.39%", week: "+0.52%", month: "—", summary: "技术性反弹", tone: "up", session: "11/18 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/20 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · QQQ 同源历史日线" },
+  { name: "VOO", close: "$671.31", day: "−0.28%", week: "−0.69%", month: "—", summary: "宽基小幅收低", tone: "down", session: "11/18 美股常规时段收盘；周基准为 11/06；FT 本轮未提供足够长的同源月度基准", checkedAt: "11/20 08:30 CST", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=VOO%3APCQ%3AUSD", sourceLabel: "Financial Times · VOO 同源历史日线" },
+  { name: "10Y 美债", close: "5.07%", day: "−3bp", week: "+21bp", month: "−5bp", summary: "油价回落带动下行", tone: "down", session: "11/18 U.S. Treasury 日收益率曲线；周/月基准为 11/06、10/20", checkedAt: "11/20 08:30 CST", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
+  { name: "DXY", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得报道中的美元指数变动，未将其冒充同源日线收盘", checkedAt: "11/20 08:30 CST", source: "https://www.investing.com/indices/usdollar-historical-data", sourceLabel: "DXY 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "现货黄金", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "同源日线待核", tone: "neutral", session: "本轮仅取得现货报道口径，未将其冒充 XAU/USD 日线收盘", checkedAt: "11/20 08:30 CST", source: "https://www.investing.com/currencies/xau-usd-historical-data", sourceLabel: "XAU/USD 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "WTI", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "近月口径待核", tone: "neutral", session: "本轮仅取得不同合约与盘中报道，未将其冒充同源多周期日线", checkedAt: "11/20 08:30 CST", source: "https://www.investing.com/commodities/crude-oil-historical-data", sourceLabel: "WTI near-month 历史行情源（待核）", contextSource: "https://www.fx678.com/" },
+  { name: "BTC", close: "暂无可信数据", day: "—", week: "—", month: "—", summary: "UTC 日线待核", tone: "neutral", session: "未取得可交叉核对的 UTC 日线收盘", checkedAt: "11/20 08:30 CST", source: "https://finance.yahoo.com/quote/BTC-USD/history/", sourceLabel: "BTC-USD 历史行情源（待核）" },
 ] as const;
 
 export const events = [
-  { window: "previous" as EventWindow, time: "收盘", category: "市场", impact: "高", title: "AI 去风险延续，三大 ETF 同步收低", detail: "11/17 常规时段，SPY 收于 $732.44（−1.01%），QQQ 收于 $656.95（−0.73%），VOO 收于 $673.19（−1.04%）。Reuters 报道显示 AI 交易去杠杆与半导体压力仍是主导线索；不把指数表现替代对单一公司的基本面判断。", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=SPY%3APCQ%3AUSD", sourceLabel: "Financial Times · ETF 历史收盘" },
-  { window: "previous" as EventWindow, time: "收盘", category: "利率", impact: "高", title: "官方 10Y 降至 5.10%，2Y 降至 4.80%", detail: "U.S. Treasury 11/17 日收益率曲线显示，10Y 较前日下降 2bp、2Y 下降 3bp。利率下行未扭转股市回撤，意味着市场还在重估 AI 盈利路径与风险溢价。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
-  { window: "previous" as EventWindow, time: "盘后", category: "财报 / AI", impact: "高", title: "Nvidia 业绩与指引高于市场预期，但常规交易时段抛压仍在", detail: "Reuters 报道称，Nvidia 季度业绩优于预期，Q4 收入指引为 $126B—$134B，且未假设中国数据中心芯片销售。该公司不在本页关注清单内；其影响应聚焦对 AI 资本开支和供应链验证，而非直接外推至所有芯片公司。", source: "https://www.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-5034180", sourceLabel: "Reuters · NVIDIA results" },
-  { window: "today" as EventWindow, time: "21:30", category: "美联储", impact: "高", title: "FOMC 10 月会议纪要", detail: "会议纪要将提供委员对通胀、劳动力市场与下一步政策的内部讨论。鹰派信号是更广泛支持加息或担忧 AI 需求推动通胀；偏鸽信号是强调增长/就业下行风险。纪要记录的是 10 月信息集，需与后续数据分开阅读。", source: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", sourceLabel: "Federal Reserve · FOMC calendar" },
+  { window: "previous" as EventWindow, time: "收盘", category: "市场", impact: "高", title: "QQQ 小幅反弹，宽基与道指仍走弱", detail: "11/18 常规时段，SPY 收于 $730.20（−0.31%），QQQ 收于 $659.51（+0.39%），VOO 收于 $671.31（−0.28%）。科技指数的反弹未扩散至宽基，说明市场广度仍需进一步验证。", source: "https://markets.ft.com/data/etfs/tearsheet/historical?s=QQQ%3ANMQ%3AUSD", sourceLabel: "Financial Times · ETF 历史收盘" },
+  { window: "previous" as EventWindow, time: "收盘", category: "利率 / 能源", impact: "高", title: "官方 10Y 降至 5.07%，油价回落缓和通胀预期", detail: "U.S. Treasury 11/18 日收益率曲线显示，10Y 较前日下降 3bp、2Y 维持 4.80%。公开市场报道显示油价走低亦压低通胀预期，但更低的收益率尚未改变鹰派政策证据。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · 官方日收益率曲线" },
+  { window: "previous" as EventWindow, time: "21:00", category: "美联储", impact: "高", title: "10 月 FOMC 纪要：几乎所有委员认为后续加息可能合适", detail: "官方纪要显示，几乎所有委员判断在其基线下进一步上调利率可能有助于及时实现 2% 通胀目标；少数委员认为若后续通胀不利，下次会议可考虑超过 25bp。纪要描述的是 10 月的讨论，不是对 12 月决定的预先承诺。", source: "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm", sourceLabel: "Federal Reserve · October FOMC minutes" },
+  { window: "today" as EventWindow, time: "全天", category: "财报 / AI", impact: "高", title: "Nvidia 财报后的 AI 供应链验证继续", detail: "Nvidia 业绩和指引高于市场预期，但常规交易时段的波动显示市场仍在评估增长、估值与治理风险。该公司不在本页关注清单内；对关注标的只把可验证的供应链、订单和资本开支信息作为观察点。", source: "https://www.investing.com/news/stock-market-news/nvidia-earnings-beat-estimates-attention-turns-to-call-5034180", sourceLabel: "Reuters · NVIDIA results" },
+  { window: "today" as EventWindow, time: "全天", category: "公司", impact: "中", title: "未核实到关注股新的同等级 SEC / IR 财报披露", detail: "本轮优先核对 SEC EDGAR 与公司投资者关系材料。未取得可信新文件时，不以市场传闻补充持仓公司事件；财报时间线继续保留已披露报告和分析页入口。", source: "https://www.sec.gov/edgar/search/", sourceLabel: "SEC EDGAR · filing search" },
   { window: "today" as EventWindow, time: "全天", category: "美联储", impact: "中", title: "Barr 最新讲话聚焦普惠社区，并非直接政策信号", detail: "联储 RSS 显示 Barr 发布了关于美国弱势社区投资的讲话。若未出现关于通胀、就业或利率路径的明确表态，不应将主题演讲机械归类为鹰派或鸽派。", source: "https://www.federalreserve.gov/feeds/speeches.xml", sourceLabel: "Federal Reserve · speeches RSS" },
   { window: "future" as EventWindow, time: "11/20 23:00", category: "就业", impact: "中", title: "美国 10 月州就业与失业数据", detail: "州层面数据可补充观察劳动力市场的区域分化，但不替代全国就业报告。重点是是否出现跨州、跨行业一致走弱，而非单一州的月度波动。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
   { window: "future" as EventWindow, time: "11/20 23:00", category: "就业", impact: "中", title: "美国 10 月州就业与失业数据", detail: "州层面数据可补充观察劳动力市场的区域分化，但不替代全国就业报告。重点是是否出现跨州、跨行业一致走弱，而非单一州的月度波动。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · 11 月发布日历" },
@@ -54,11 +55,11 @@ export const earnings = [
 export const watchlist = ["SNDK", "TSLA", "MSFT", "AAPL", "GOOGL", "META", "SKHY", "MU", "AMD", "PLTR", "SPCX", "INTC", "PAAS", "AMZN", "QQQ", "SPY", "VOO", "GDX"];
 
 export const internationalNews = [
-  { category: "全球股市 / AI 供应链", date: "11/16", impact: "半导体、云资本开支与风险偏好", title: "芯片板块回撤扩散至亚洲与欧美市场", detail: "Reuters 报道称，美国芯片股下跌 5.3%，韩国与台湾市场亦走弱。传导路径是 AI 资本开支回报与领导层不确定性引发的估值重估；后续观察点是龙头业绩、订单展望和云厂商资本开支。", source: "https://live.euronext.com/en/financial-news/stocks-end-lower-ahead-nvidia-earnings-and-anthropic-ipo-oil-drops", sourceLabel: "Reuters · global market close" },
-  { category: "中东 / 能源与航运", date: "11/16", impact: "油价、通胀预期与航空运输成本", title: "供应修复压低油价，油轮事件仍保留尾部风险", detail: "Reuters 报道称，霍尔木兹海峡石油流量恢复的迹象令油价走低，但新的油轮事件仍提示航运风险未完全消失。供给持续恢复会压低能源通胀；运输受阻则可能迅速重建风险溢价。", source: "https://live.euronext.com/en/financial-news/stocks-end-lower-ahead-nvidia-earnings-and-anthropic-ipo-oil-drops", sourceLabel: "Reuters · oil and shipping" },
-  { category: "全球利率 / 汇率", date: "11/16", impact: "美元、黄金与成长股估值", title: "美元续创阶段高位，收益率回落幅度有限", detail: "Reuters 报道显示，美元指数触及 2025 年 4 月以来高位，10Y 收益率仅小幅回落。对跨资产的传导是美元融资条件偏紧与高久期估值承压；并不意味着单日收益率回落足以改变政策预期。", source: "https://www.investing.com/news/economy-news/trading-day-ai-jitters-slam-wall-street-5031112", sourceLabel: "Reuters · FX and rates market report" },
-  { category: "中美 / 供应链", date: "11/16", impact: "AI 芯片出口、半导体估值与风险偏好", title: "美国收紧境外算力租用漏洞，AI 芯片对华限制再受关注", detail: "CNBC 报道称，美国商务部拟收紧使中国企业可租用境外 Nvidia 算力的漏洞。对市场的影响取决于最终规则的覆盖范围、执行时间与企业收入敞口，不能仅凭标题量化单家公司影响。", source: "https://www.cnbc.com/2026/11/15/stock-market-today-live-updates.html", sourceLabel: "CNBC · policy and market report" },
-  { category: "全球货币政策", date: "11/16", impact: "短端利率、银行股与风险资产折现率", title: "12 月加息预期仍主导，但后续路径尚未由市场定价决定", detail: "Reuters 报道称，期货市场仍计入 12 月加息预期，而 10 月会议纪要将于周三发布。市场概率只是资产定价；正式政策仍须以 FOMC 决议、通胀与就业证据为准。", source: "https://live.euronext.com/en/financial-news/stocks-end-lower-ahead-nvidia-earnings-and-anthropic-ipo-oil-drops", sourceLabel: "Reuters · monetary-policy watch" },
+  { category: "全球货币政策", date: "11/18", impact: "短端利率、成长股估值与美元", title: "FOMC 纪要强化“仍可能继续加息”的官方表述", detail: "10 月会议纪要称，几乎所有委员按其通胀与劳动力市场基线判断，进一步上调目标区间可能合适；这不是 12 月的预先承诺。传导路径是更高的终端利率预期抬高折现率；后续观察 PCE、就业与 12 月会议。", source: "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm", sourceLabel: "Federal Reserve · October FOMC minutes" },
+  { category: "全球股市 / AI 供应链", date: "11/18", impact: "半导体、云资本开支与风险偏好", title: "英伟达业绩优于预期后仍收低，AI 回报验证主导定价", detail: "Reuters 市场报道显示，英伟达在业绩优于预期后仍下跌 2.9%，标普 500 收低、纳指小幅收高。市场在交易的不是单一季度是否超预期，而是 AI 投资回报、订单能见度与估值的持续性。", source: "https://lufkindailynews.com/news_reuters/business/wall-street-ends-mixed-after-nvidia-earnings-fed-minutes/article_757d7e1e-451b-5fc3-914c-44086229e225.html", sourceLabel: "Reuters · U.S. market close" },
+  { category: "全球利率 / 资金流", date: "11/18", impact: "长久期科技、银行与高股息资产", title: "10 年美债收益率回落，但纪要未解除政策偏鹰压力", detail: "美国财政部官方日值显示 10Y 从 5.10% 降至 5.07%，但纪要的偏鹰措辞限制了“收益率回落即政策转向”的解读。利率下行可短线支持久期资产，持续性仍取决于后续通胀数据。", source: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/2026/all?type=daily_treasury_yield_curve&field_tdr_date_value=2026&page&_format=csv", sourceLabel: "U.S. Treasury · official daily curve" },
+  { category: "能源与航运", date: "11/18", impact: "油价、通胀预期与运输成本", title: "油价走弱为通胀提供边际缓冲，但供给扰动仍需单独核验", detail: "市场报道反映油价当日走弱，对短期能源通胀预期构成缓冲；但本期未取得可与近月同源日线交叉核对的完整 WTI 数据，因此不将盘中变动写成收盘结论。后续关注库存、产量与航运中断。", source: "https://finance.yahoo.com/markets/stocks/articles/stocks-settle-mostly-lower-nvidia-213621504.html", sourceLabel: "Barchart via Yahoo Finance · market context" },
+  { category: "数据与全球风险偏好", date: "11/18", impact: "宽基指数、美元与高估值资产", title: "美股收盘分化，风险资产需同时消化政策与盈利两条线", detail: "Reuters 报道称，道指下跌、标普小幅收低而纳指微涨，显示市场并非单一方向交易。政策端的偏鹰纪要与盈利端的 AI 验证相互拉扯，后续应关注指数广度、收益率及公司指引，而非仅凭指数点位定方向。", source: "https://lufkindailynews.com/news_reuters/business/wall-street-ends-mixed-after-nvidia-earnings-fed-minutes/article_757d7e1e-451b-5fc3-914c-44086229e225.html", sourceLabel: "Reuters · U.S. market close" },
 ] as const;
 
 export const stockNews = [
@@ -75,27 +76,28 @@ export const stockNews = [
 export const fedPolicy = {
   currentRange: "3.75%—4.00%",
   bias: "偏鹰 · 12 月前等待更多通胀证据",
-  checkedAt: "11/19 08:30 CST",
+  checkedAt: "11/20 08:30 CST",
   nextMeeting: "12/08—12/09（含经济预测）",
-  summary: "10 月 FOMC 将目标区间维持在 3.75%—4.00%，但 Cook 与 Hammack 主张当次上调 25bp；声明称通胀仍然偏高。最新 BLS PPI 显示，10 月总体环比 +0.3%，剔除食品、能源和贸易服务环比 +0.5%。事实层面，核心价格压力尚未消失；模型层面，是否加息、幅度及路径仍须由后续就业、PCE 与 12 月会议决定，市场概率不是政策承诺。",
+  summary: "10 月 FOMC 将目标区间维持在 3.75%—4.00%，而随后公布的会议纪要称，几乎所有委员认为按其基线展望，进一步上调目标区间可能合适。最新已披露的核心 PPI 环比 +0.5%。事实层面，通胀压力与纪要均偏鹰；模型层面，12 月是否行动仍取决于后续就业、PCE 与会议判断，市场概率不是政策承诺。",
   drivers: [
-    { direction: "hike", directionLabel: "支持加息", signal: "明显增强", title: "核心 PPI 连续两月环比 +0.5%，官方声明仍称通胀偏高", detail: "10 月声明明确写明通胀仍偏高，两名委员主张当次加息。BLS 随后公布的剔除食品、能源和贸易服务 PPI 环比 +0.5%，与 9 月相同；若后续 PCE 同样偏强，鹰派证据会增强。", source: "https://www.bls.gov/news.release/ppi.nr0.htm", sourceLabel: "U.S. BLS · October PPI" },
+    { direction: "hike", directionLabel: "支持加息", signal: "明显增强", title: "纪要称几乎所有委员认为进一步上调可能合适", detail: "10 月会议纪要记录，几乎所有委员按其通胀与劳动力市场基线判断，进一步上调目标区间可能合适；若后续通胀不利，少数委员认为下次会议也可考虑超过 25bp。该措辞是官方历史记录，不是对 12 月行动的承诺。", source: "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm", sourceLabel: "Federal Reserve · October FOMC minutes" },
     { direction: "cut", directionLabel: "支持降息", signal: "本期未获新增官方证据", title: "不以旧就业数据替代当前政策证据", detail: "本轮没有核实到足以更新政策判断的新的官方偏鸽材料，因此不把历史就业叙事延续为当前结论。若后续就业明显转弱且通胀同时降温，才会形成更完整的降息证据链。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "U.S. BLS · official release calendar" },
     { direction: "neutral", directionLabel: "按兵不动", signal: "最近一次正式决定", title: "10 月会议选择维持目标区间", detail: "多数委员在 10 月决定维持 3.75%—4.00%。这是当前正式政策水平，不等同于 12 月的预先承诺；下一次带预测材料的会议在 12 月 8—9 日。", source: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm", sourceLabel: "Federal Reserve · 10 月 FOMC 声明" },
   ],
   catalysts: [
-    { date: "11/17 21:30", event: "10 月进出口价格", detail: "观察进口成本、能源与贸易价格传导。", hawkish: "非燃料进口价格加速。", dovish: "进口价格与核心成本同步回落。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "BLS" },
+    { date: "11/20 23:00", event: "10 月州就业与失业", detail: "观察劳动力市场在全国数据之外是否同步走弱。", hawkish: "就业需求广泛偏强、失业率回落。", dovish: "失业率上行或就业走弱范围扩大。", source: "https://www.bls.gov/schedule/2026/11_sched_list.htm", sourceLabel: "BLS" },
     { date: "11/25 21:30", event: "10 月个人收入与支出（含 PCE）", detail: "PCE 是联储重点关注的通胀指标。", hawkish: "核心 PCE 高于预期且消费韧性较强。", dovish: "核心 PCE 放缓、实际消费转弱。", source: "https://www.bea.gov/news/schedule", sourceLabel: "U.S. BEA" },
     { date: "12/08—12/09", event: "FOMC 与经济预测", detail: "下一次带预测材料的正式政策决策窗口。", hawkish: "上调通胀预测、上调利率路径或实际加息。", dovish: "通胀预期下修并强调就业下行风险。", source: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", sourceLabel: "Federal Reserve" },
   ],
 } as const;
 
 export const signals = {
-  options: [{ ticker: "本期", text: "截至 11/19 08:30，未取得覆盖全部关注标的、带历史基准且可审计的完整期权逐笔数据；不把新闻摘要、单笔成交量或社交媒体截图定义为期权异动。" }],
-  ratings: [{ ticker: "本期", text: "截至 11/19 08:30，未取得投行原始报告或至少两家高可信来源交叉确认的重大机构评级变动；聚合站目标价变化不作为事实写入。" }],
+  options: [{ ticker: "本期", text: "截至 11/20 08:30，未取得覆盖全部关注标的、带历史基准且可审计的完整期权逐笔数据；不把新闻摘要、单笔成交量或社交媒体截图定义为期权异动。" }],
+  ratings: [{ ticker: "本期", text: "截至 11/20 08:30，未取得投行原始报告或至少两家高可信来源交叉确认的重大机构评级变动；聚合站目标价变化不作为事实写入。" }],
 };
 
 export const sources = [
+  ["Federal Reserve · October 2026 FOMC minutes", "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm"],
   ["Federal Reserve · speeches RSS", "https://www.federalreserve.gov/feeds/speeches.xml"],
   ["Federal Reserve · October FOMC statement", "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"],
   ["Federal Reserve · FOMC calendar", "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"],
