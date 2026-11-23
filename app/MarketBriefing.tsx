@@ -27,7 +27,7 @@ const MOBILE_EXPORT_WIDTH = 540;
 
 export function MarketBriefing({
   data = currentIssueData,
-  issueLabel = "第 025 期",
+  issueLabel = "第 026 期",
 }: {
   data?: MarketIssueData;
   issueLabel?: string;

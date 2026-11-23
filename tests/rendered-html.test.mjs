@@ -50,9 +50,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /QQQ 小幅反弹，宽基与道指仍走弱/);
+  assert.match(html, /AI 去风险加速，三大 ETF 大幅收低/);
   assert.match(html, /暂无可信数据/);
-  assert.match(html, /FOMC 纪要强化“仍可能继续加息”的官方表述/);
+  assert.match(html, /AI 去风险席卷全球科技股，纳指单周跌幅创 2020 年以来最大/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /GOOGL/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /11\/18/);
-  assert.match(html, /纪要强化加息路径/);
-  assert.match(html, /鹰派纪要压住估值/);
+  assert.match(html, /11\/20/);
+  assert.match(html, /AI 抛售加速，宽基进入修正区间/);
+  assert.match(html, /AI 去风险触发宽基修正/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {
