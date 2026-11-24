@@ -50,9 +50,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /msft-ex99_1\.htm/);
   assert.match(html, /a8-kex991q3202606272026\.htm/);
   assert.match(html, /amzn-20260630xex991\.htm/);
-  assert.match(html, /AI 去风险加速，三大 ETF 大幅收低/);
+  assert.match(html, /AI 龙头事件推动科技急弹，QQQ 上涨 7\.00%/);
   assert.match(html, /暂无可信数据/);
-  assert.match(html, /AI 去风险席卷全球科技股，纳指单周跌幅创 2020 年以来最大/);
+  assert.match(html, /英伟达管理层事件驱动 AI 链强势回补/);
   assert.match(html, /AMD/);
   assert.match(html, /PLTR/);
   assert.match(html, /GOOGL/);
@@ -60,9 +60,9 @@ test("renders verified earnings links and international sources", async () => {
   assert.match(html, /Alphabet/);
   assert.match(html, /Google Cloud \+82%/);
   assert.match(html, /影响路径/);
-  assert.match(html, /11\/20/);
-  assert.match(html, /AI 抛售加速，宽基进入修正区间/);
-  assert.match(html, /AI 去风险触发宽基修正/);
+  assert.match(html, /11\/23/);
+  assert.match(html, /AI 龙头事件催化强反弹，仍需验证市场广度/);
+  assert.match(html, /事件驱动反弹待验证/);
 });
 
 test("renders detailed earnings analysis from official filings", async () => {

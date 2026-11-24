@@ -1,4 +1,5 @@
 export const archivedIssues = [
+  { id: "2026-11-24-am", issue: "第 027 期", edition: "盘后总结", publishedAt: "2026-11-24 08:30 CST", title: "AI 龙头事件催化强反弹，仍需验证市场广度", stance: "中性偏谨慎 · 事件驱动反弹待验证", summary: "11/23 SPY 收 $722.29、QQQ 收 $651.03、VOO 收 $663.91；10Y 官方日值维持 4.92%。", href: "/issues/2026-11-24-am" },
   { id: "2026-11-23-am", issue: "第 026 期", edition: "盘后总结", publishedAt: "2026-11-23 08:30 CST", title: "AI 抛售加速，宽基进入修正区间", stance: "偏谨慎 · AI 去风险触发宽基修正", summary: "11/20 SPY 收 $689.81、QQQ 收 $608.45、VOO 收 $635.54；10Y 官方日值降至 4.92%。", href: "/issues/2026-11-23-am" },
   { id: "2026-11-20-am", issue: "第 025 期", edition: "盘后总结", publishedAt: "2026-11-20 08:30 CST", title: "纪要强化加息路径，科技企稳但宽基仍承压", stance: "偏谨慎 · 鹰派纪要压住估值", summary: "11/18 SPY 收 $730.20、QQQ 收 $659.51、VOO 收 $671.31；10Y 官方日值降至 5.07%。", href: "/issues/2026-11-20-am" },
   { id: "2026-11-19-am", issue: "第 024 期", edition: "盘后总结", publishedAt: "2026-11-19 08:30 CST", title: "AI 去风险延续，收益率下行仍未扭转科技与宽基回撤", stance: "偏谨慎 · AI 链持续去风险", summary: "11/17 SPY 收 $732.44、QQQ 收 $656.95、VOO 收 $673.19；10Y 官方日值回落至 5.10%。", href: "/issues/2026-11-19-am" },
